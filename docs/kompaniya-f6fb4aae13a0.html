@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="uz"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Kompaniya — буюртмалар</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1419;--panel:#171d26;--panel2:#1c2430;--border:#2a3441;
+  --text:#e8edf3;--muted:#8b98a8;--accent:#4f8bf0;--accent2:#7c5cff;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+background:linear-gradient(160deg,#0f1419 0%,#141a22 100%);color:var(--text);
+padding:18px;font-size:14px;min-height:100vh}
+h1{font-size:22px;margin-bottom:4px;font-weight:700;
+background:linear-gradient(90deg,#7c5cff,#4f8bf0);-webkit-background-clip:text;
+background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:12px;
+padding:12px 16px;min-width:110px;transition:transform .15s,border-color .15s}
+.stat:hover{transform:translateY(-2px);border-color:var(--accent)}
+.stat .n{font-size:24px;font-weight:800;color:var(--text)}
+.stat .l{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;
+letter-spacing:.03em}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+input,select,button{padding:9px 12px;border:1px solid var(--border);border-radius:8px;
+font-size:14px;background:var(--panel);color:var(--text);font-family:inherit}
+input::placeholder{color:var(--muted)}
+input[type=text]{min-width:220px;flex:1}
+input[type=date]{color-scheme:dark}
+.btn{cursor:pointer;font-weight:600;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--accent);background:#212b38}
+.btn-primary{background:linear-gradient(90deg,var(--accent2),var(--accent));border:none;
+color:#fff}
+.btn-primary:hover{filter:brightness(1.1)}
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);
+background:var(--panel)}
+table{width:100%;border-collapse:collapse;min-width:1080px}
+th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:11px;font-weight:700;
+color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;
+border-bottom:1px solid var(--border);position:sticky;top:0}
+td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap}
+td.wrap{white-space:normal}
+tr{transition:background .1s}
+tr:hover td{background:#1e2733}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;
+white-space:nowrap;font-weight:600;border:1px solid transparent}
+.s-confirm_new{background:#3a2f0d;color:#ffcc4d;border-color:#5a4a15}
+.s-no_answer{background:#3a2a0d;color:#ffb84d;border-color:#5a4015}
+.s-confirmed{background:#0d3a20;color:#4dffa0;border-color:#155a35}
+.s-rejected{background:#3a0d14;color:#ff6b7a;border-color:#5a1520}
+.prod{font-size:13px;line-height:1.5;color:var(--text)}
+.muted{color:var(--muted);font-size:12px}
+.nowrap{white-space:nowrap}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.rop-list{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.rop-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
+padding:16px;transition:transform .15s,border-color .15s}
+.rop-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.rop-card .name{font-weight:700;font-size:17px;margin-bottom:8px}
+.rop-card .name a{color:var(--text)}
+.ph{display:inline-flex;align-items:center;gap:6px}
+.eye{border:1px solid var(--border);background:var(--panel2);border-radius:6px;cursor:pointer;
+padding:3px 7px;font-size:12px;line-height:1.4;color:var(--muted)}
+.eye:hover{color:var(--text);border-color:var(--accent)}
+@media(max-width:700px){
+ body{padding:10px}
+ .stat{min-width:90px;padding:10px 12px}
+ .stat .n{font-size:20px}
+ input[type=text]{min-width:150px}
+}
+</style>
+</head><body>
+<h1>Kompaniya — буюртмалар</h1>
+<div class="sub">Янгиланди: 18.08.2026 14:37 (ҳар 2 дақиқада автомат янгиланади) ·
+Кўрсатилмоқда: <b id="shown">0</b> та</div>
+<div class="stats"><div class="stat"><div class="n">11</div><div class="l">Жами</div></div><div class="stat"><div class="n">7</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n">4</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n">0</div><div class="l">❌ Тасдиқланмади</div></div></div>
+<div class="controls">
+<input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
+<button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
+<select id="st"><option value="">Барча статус</option><option value="confirm_new">🕔 Тасдиқлаш</option><option value="no_answer">🟡 Кутармади (нд)</option><option value="confirmed">✅ Тасдиқланди</option><option value="rejected">❌ Тасдиқланмади</option></select>
+<input type="date" id="d1" title="Дан">
+<input type="date" id="d2" title="Гача">
+<button class="btn" onclick="resetF()">Тозалаш</button>
+</div>
+<div class="table-wrap">
+<table><thead><tr>
+<th>№</th><th>Сана</th><th>Id сделки</th><th>Продукт</th><th>Сумма</th>
+<th>Регион</th><th>Адрес</th><th>Мижоз</th><th>Телефон</th><th>Оператор</th><th>Статус</th>
+</tr></thead><tbody>
+<tr data-status="confirmed" data-date="2026-08-16" data-phones="+998993371555">
+<td data-l="№" class="nowrap">001</td>
+<td data-l="Сана" class="nowrap">2026-08-16<div class="muted">10:08</div></td>
+<td data-l="Id сделки" class="nowrap">183888</td>
+<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
+<td data-l="Сумма" class="nowrap">1 800 000</td>
+<td data-l="Регион">Қашқадарё</td>
+<td data-l="Адрес">Qarshi shaxar  Saroy mahalla kichik saroy ko&#x27;chasi 38- xonadon</td>
+<td data-l="Мижоз">Gulruh</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993371555"><span class="pm">+99899***1555</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Входящий</div></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-14" data-phones="+79175733728 +79055290763">
+<td data-l="№" class="nowrap">002</td>
+<td data-l="Сана" class="nowrap">2026-08-14<div class="muted">20:47</div></td>
+<td data-l="Id сделки" class="nowrap">848494</td>
+<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 3 ta</td>
+<td data-l="Сумма" class="nowrap">2 500 000</td>
+<td data-l="Регион">Тошкент ш.</td>
+<td data-l="Адрес">Город Москва.Район Пресненская.метро 1905.Дом Стрелбешински прелок 7 а</td>
+<td data-l="Мижоз">Gulzora</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+79175733728"><span class="pm">+79175***3728</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+79055290763"><span class="pm">+79055***0763</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Телеграмм</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998913360277">
+<td data-l="№" class="nowrap">001</td>
+<td data-l="Сана" class="nowrap">2026-08-14<div class="muted">00:01</div></td>
+<td data-l="Id сделки" class="nowrap">843562</td>
+<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta</td>
+<td data-l="Сумма" class="nowrap">400 000</td>
+<td data-l="Регион">Тошкент вил.</td>
+<td data-l="Адрес">TEST</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Ген лид</div></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998913360277">
+<td data-l="№" class="nowrap">008</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">23:51</div></td>
+<td data-l="Id сделки" class="nowrap">843536</td>
+<td data-l="Продукт" class="prod">Prox - 1 ta</td>
+<td data-l="Сумма" class="nowrap">650 000</td>
+<td data-l="Регион">Тошкент вил.</td>
+<td data-l="Адрес">asdadasd</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Youtube</div></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998913360277">
+<td data-l="№" class="nowrap">007</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">23:30</div></td>
+<td data-l="Id сделки" class="nowrap">843472</td>
+<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta</td>
+<td data-l="Сумма" class="nowrap">400 000</td>
+<td data-l="Регион">Тошкент вил.</td>
+<td data-l="Адрес">фывфвфы</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Ген лид</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998913360277">
+<td data-l="№" class="nowrap">006</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">23:27</div></td>
+<td data-l="Id сделки" class="nowrap">843464</td>
+<td data-l="Продукт" class="prod">Prox - 1 ta</td>
+<td data-l="Сумма" class="nowrap">650 000</td>
+<td data-l="Регион">Тошкент ш.</td>
+<td data-l="Адрес">ывфывфыв</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Веб-сайт</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998913360277">
+<td data-l="№" class="nowrap">005</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">23:24</div></td>
+<td data-l="Id сделки" class="nowrap">843456</td>
+<td data-l="Продукт" class="prod">Prox - 1 ta</td>
+<td data-l="Сумма" class="nowrap">650 000</td>
+<td data-l="Регион">Тошкент ш.</td>
+<td data-l="Адрес">фывфыв</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Входящий</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998990770849">
+<td data-l="№" class="nowrap">004</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">22:58</div></td>
+<td data-l="Id сделки" class="nowrap">843356</td>
+<td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Сумма" class="nowrap">900 000</td>
+<td data-l="Регион">Навоий</td>
+<td data-l="Адрес">TEST</td>
+<td data-l="Мижоз">Дониёр Рустамов Рустамов</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990770849"><span class="pm">+99899***0849</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">CRM-форма</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998996888661">
+<td data-l="№" class="nowrap">003</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">20:13</div></td>
+<td data-l="Id сделки" class="nowrap">842498</td>
+<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Сумма" class="nowrap">800 000</td>
+<td data-l="Регион">Навоий</td>
+<td data-l="Адрес">Navoiy Karmana (Qarzga)</td>
+<td data-l="Мижоз">Murod akani qushnisi Fazliddin</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996888661"><span class="pm">+99899***8661</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Входящий</div></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998913360277">
+<td data-l="№" class="nowrap">002</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">19:55</div></td>
+<td data-l="Id сделки" class="nowrap">842408</td>
+<td data-l="Продукт" class="prod">Prox - 1 ta</td>
+<td data-l="Сумма" class="nowrap">650 000</td>
+<td data-l="Регион">Тошкент вил.</td>
+<td data-l="Адрес">ТЕСТ</td>
+<td data-l="Мижоз">Дониёр</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998913360277"><span class="pm">+99891***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Сммщик sinolifeuz</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirm_new" data-date="2026-08-13" data-phones="+998905004656">
+<td data-l="№" class="nowrap">001</td>
+<td data-l="Сана" class="nowrap">2026-08-13<div class="muted">19:52</div></td>
+<td data-l="Id сделки" class="nowrap">842312</td>
+<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta</td>
+<td data-l="Сумма" class="nowrap">400 000</td>
+<td data-l="Регион">Андижон</td>
+<td data-l="Адрес">ТЕСТ</td>
+<td data-l="Мижоз">Без имени</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905004656"><span class="pm">+99890***4656</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Мурод Содиков<div class="muted">Ген лид</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr>
+</tbody></table>
+</div>
+<script>
+var TODAY = "2026-08-18";
+function togglePhone(btn){
+  var wrap=btn.closest('.ph');
+  var span=wrap.querySelector('.pm');
+  var full=wrap.dataset.full;
+  if(btn.dataset.shown==='1'){
+    span.textContent=full.slice(0,6)+'***'+full.slice(-4);
+    btn.dataset.shown='0'; btn.textContent='👁'; btn.title='Кўрсатиш';
+  }else{
+    span.textContent=full;
+    btn.dataset.shown='1'; btn.textContent='🙈'; btn.title='Яшириш';
+  }
+}
+function applyFilters(){
+  var q=document.getElementById('q').value.toLowerCase();
+  var st=document.getElementById('st').value;
+  var d1=document.getElementById('d1').value;
+  var d2=document.getElementById('d2').value;
+  var rows=document.querySelectorAll('tbody tr');
+  var shown=0;
+  rows.forEach(function(r){
+    var ok=true;
+    if(st && r.dataset.status!==st) ok=false;
+    if(ok && d1 && r.dataset.date < d1) ok=false;
+    if(ok && d2 && r.dataset.date > d2) ok=false;
+    if(ok && q){
+      var hay=(r.innerText+' '+(r.dataset.phones||'')).toLowerCase();
+      if(hay.indexOf(q)===-1) ok=false;
+    }
+    r.style.display = ok ? '' : 'none';
+    if(ok) shown++;
+  });
+  document.getElementById('shown').textContent=shown;
+}
+function filterToday(){
+  document.getElementById('d1').value=TODAY;
+  document.getElementById('d2').value=TODAY;
+  applyFilters();
+}
+function resetF(){
+  document.getElementById('q').value='';
+  document.getElementById('st').value='';
+  document.getElementById('d1').value='';
+  document.getElementById('d2').value='';
+  applyFilters();
+}
+document.addEventListener('DOMContentLoaded',function(){
+  ['q','st','d1','d2'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('input',applyFilters);
+    el.addEventListener('change',applyFilters);
+  });
+  applyFilters();
+  setTimeout(function(){location.reload()}, 120000);
+});
+</script>
+</body></html>
