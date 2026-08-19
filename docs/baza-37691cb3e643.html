@@ -7,695 +7,829 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0f1419;--panel:#171d26;--panel2:#1c2430;--border:#2a3441;
-  --text:#e8edf3;--muted:#8b98a8;--accent:#4f8bf0;--accent2:#7c5cff;
+  --bg:#f5f7fb;--panel:#ffffff;--panel2:#eef2f8;--border:#dde4ee;
+  --text:#1c2533;--muted:#6b7a90;--accent:#2f6fed;--accent2:#7c4dff;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-background:linear-gradient(160deg,#0f1419 0%,#141a22 100%);color:var(--text);
+background:linear-gradient(165deg,#f5f7fb 0%,#eaf0f9 100%);color:var(--text);
 padding:18px;font-size:14px;min-height:100vh}
-h1{font-size:22px;margin-bottom:4px;font-weight:700;
-background:linear-gradient(90deg,#7c5cff,#4f8bf0);-webkit-background-clip:text;
+h1{font-size:22px;margin-bottom:4px;font-weight:800;
+background:linear-gradient(90deg,#7c4dff,#2f6fed);-webkit-background-clip:text;
 background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
 .stat{background:var(--panel);border:1px solid var(--border);border-radius:12px;
-padding:12px 16px;min-width:110px;transition:transform .15s,border-color .15s}
-.stat:hover{transform:translateY(-2px);border-color:var(--accent)}
+padding:12px 16px;min-width:112px;transition:transform .15s,box-shadow .15s;
+box-shadow:0 1px 3px rgba(28,37,51,.06)}
+.stat:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(47,111,237,.14)}
 .stat .n{font-size:24px;font-weight:800;color:var(--text)}
 .stat .l{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;
 letter-spacing:.03em}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
 input,select,button{padding:9px 12px;border:1px solid var(--border);border-radius:8px;
 font-size:14px;background:var(--panel);color:var(--text);font-family:inherit}
-input::placeholder{color:var(--muted)}
+input::placeholder{color:#9aa8bd}
 input[type=text]{min-width:220px;flex:1}
-input[type=date]{color-scheme:dark}
-.btn{cursor:pointer;font-weight:600;transition:background .15s,border-color .15s}
-.btn:hover{border-color:var(--accent);background:#212b38}
+.btn{cursor:pointer;font-weight:600;transition:background .15s,border-color .15s,box-shadow .15s}
+.btn:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(47,111,237,.15)}
 .btn-primary{background:linear-gradient(90deg,var(--accent2),var(--accent));border:none;
 color:#fff}
-.btn-primary:hover{filter:brightness(1.1)}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-alt{background:linear-gradient(90deg,#0ea36b,#12b981);border:none;color:#fff}
+.btn-alt:hover{filter:brightness(1.06)}
 .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);
-background:var(--panel)}
-table{width:100%;border-collapse:collapse;min-width:1080px}
+background:var(--panel);box-shadow:0 1px 3px rgba(28,37,51,.06)}
+table{width:100%;border-collapse:collapse;min-width:1180px}
 th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:11px;font-weight:700;
 color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;
-border-bottom:1px solid var(--border);position:sticky;top:0}
+border-bottom:1px solid var(--border);position:sticky;top:0;z-index:2}
 td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap}
-td.wrap{white-space:normal}
 tr{transition:background .1s}
-tr:hover td{background:#1e2733}
+tr:hover td{background:#f3f7ff}
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;
 white-space:nowrap;font-weight:600;border:1px solid transparent}
-.s-confirm_new{background:#3a2f0d;color:#ffcc4d;border-color:#5a4a15}
-.s-no_answer{background:#3a2a0d;color:#ffb84d;border-color:#5a4015}
-.s-confirmed{background:#0d3a20;color:#4dffa0;border-color:#155a35}
-.s-rejected{background:#3a0d14;color:#ff6b7a;border-color:#5a1520}
-.prod{font-size:13px;line-height:1.5;color:var(--text)}
+.s-confirm_new{background:#fff6dd;color:#8a6100;border-color:#f0dfae}
+.s-no_answer{background:#fff0d8;color:#8a5300;border-color:#f0d7ab}
+.s-confirmed{background:#dcf7e6;color:#0d6b33;border-color:#a9e6c1}
+.s-rejected{background:#ffe3e5;color:#a41722;border-color:#f5b9be}
+.prod{font-size:13px;line-height:1.5;white-space:normal;max-width:260px}
 .muted{color:var(--muted);font-size:12px}
 .nowrap{white-space:nowrap}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.rop-list{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.rop-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
-padding:16px;transition:transform .15s,border-color .15s}
-.rop-card:hover{transform:translateY(-3px);border-color:var(--accent)}
-.rop-card .name{font-weight:700;font-size:17px;margin-bottom:8px}
-.rop-card .name a{color:var(--text)}
 .ph{display:inline-flex;align-items:center;gap:6px}
 .eye{border:1px solid var(--border);background:var(--panel2);border-radius:6px;cursor:pointer;
 padding:3px 7px;font-size:12px;line-height:1.4;color:var(--muted)}
 .eye:hover{color:var(--text);border-color:var(--accent)}
+.addr{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+display:inline-block;vertical-align:bottom;cursor:pointer}
+.addr.open{white-space:normal;max-width:320px;overflow:visible}
+/* ── Статистика модали ── */
+.modal{display:none;position:fixed;inset:0;background:rgba(20,28,42,.45);z-index:50;
+padding:24px;overflow-y:auto}
+.modal.show{display:block}
+.modal-box{background:var(--panel);border-radius:14px;max-width:1000px;margin:0 auto;
+padding:22px;box-shadow:0 20px 60px rgba(20,28,42,.25)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.modal-head h2{font-size:19px;font-weight:800}
+.close-x{cursor:pointer;border:1px solid var(--border);background:var(--panel2);
+border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--muted)}
+.close-x:hover{color:var(--text);border-color:var(--accent)}
+.stat-table{width:100%;border-collapse:collapse;min-width:auto}
+.stat-table th{position:static}
+.stat-table td{white-space:nowrap}
+.bar{height:7px;border-radius:4px;background:var(--panel2);overflow:hidden;min-width:90px;
+margin-top:5px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#12b981,#0ea36b)}
+.pct{font-weight:700}
 @media(max-width:700px){
  body{padding:10px}
- .stat{min-width:90px;padding:10px 12px}
+ .stat{min-width:92px;padding:10px 12px}
  .stat .n{font-size:20px}
  input[type=text]{min-width:150px}
+ .modal{padding:10px}
+ .modal-box{padding:14px}
 }
 </style>
 </head><body>
 <h1>Baza — буюртмалар</h1>
-<div class="sub">Янгиланди: 19.08.2026 15:43 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 19.08.2026 15:46 (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n">50</div><div class="l">Жами</div></div><div class="stat"><div class="n">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n">45</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n">3</div><div class="l">❌ Тасдиқланмади</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">50</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">45</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">3</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
+
 <select id="st"><option value="">Барча статус</option><option value="confirm_new">🕔 Тасдиқлаш</option><option value="no_answer">🟡 Кутармади (нд)</option><option value="confirmed">✅ Тасдиқланди</option><option value="rejected">❌ Тасдиқланмади</option></select>
 <input type="date" id="d1" title="Дан">
 <input type="date" id="d2" title="Гача">
 <button class="btn" onclick="resetF()">Тозалаш</button>
+<button class="btn btn-alt" onclick="openStats()">📊 Статистика</button>
 </div>
 <div class="table-wrap">
 <table><thead><tr>
-<th>№</th><th>Сана</th><th>Id сделки</th><th>Продукт</th><th>Сумма</th>
-<th>Регион</th><th>Адрес</th><th>Мижоз</th><th>Телефон</th><th>Оператор</th><th>Статус</th>
+<th>№</th><th>Сана</th><th>Id сделки</th><th>Мижоз</th><th>Телефон</th>
+<th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
+<th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998916462272 916462272">
+<tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998916462272 916462272" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:29</div></td>
 <td data-l="Id сделки" class="nowrap">875408</td>
+<td data-l="Мижоз">Sadirova Xolida холида</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916462272"><span class="pm">+99891***2272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="916462272"><span class="pm">916462272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Alimova Nafisa 221 221</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Fisku tumani  Shodlik kucha 86 uy</td>
-<td data-l="Мижоз">Sadirova Xolida холида</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916462272"><span class="pm">+99891***2272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="916462272"><span class="pm">916462272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Alimova Nafisa 221 221<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Fisku tumani  Shodlik kucha 86 uy">Fisku tumani  Shodlik kucha 86 uy</span></td>
 <td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998995574024">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998995574024" data-rop="Baza" data-summa="950 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:23</div></td>
 <td data-l="Id сделки" class="nowrap">872576</td>
+<td data-l="Мижоз">Zohida</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998995574024"><span class="pm">+99899***4024</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">950 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">toshkent shahar Mirobot tumani mehrjon ko&#x27;cha 45-dom  76-xonadon  +998712918503</td>
-<td data-l="Мижоз">Zohida</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998995574024"><span class="pm">+99899***4024</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Веб-сайт</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="toshkent shahar Mirobot tumani mehrjon ko&#x27;cha 45-dom  76-xonadon  +998712918503">toshkent shahar Mirobot tumani mehrjon ko&#x27;cha 45-dom  76-xonadon  +998712918503</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998998579170">
+<td data-l="Источник">Веб-сайт</td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998998579170" data-rop="Baza" data-summa="2 300 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:02</div></td>
 <td data-l="Id сделки" class="nowrap">875202</td>
+<td data-l="Мижоз">Мардона ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998579170"><span class="pm">+99899***9170</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 3 ta</td>
 <td data-l="Сумма" class="nowrap">2 300 000</td>
 <td data-l="Регион">Тошкент вил.</td>
-<td data-l="Адрес">Angren shahar G&#x27;ulomov ko&#x27;chasi 5. 1-uy</td>
-<td data-l="Мижоз">Мардона ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998579170"><span class="pm">+99899***9170</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Веб-сайт</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Angren shahar G&#x27;ulomov ko&#x27;chasi 5. 1-uy">Angren shahar G&#x27;ulomov ko&#x27;chasi 5. 1-uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="no_answer" data-date="2026-08-19" data-phones="+998887970500">
+<td data-l="Источник">Веб-сайт</td>
+</tr><tr data-status="no_answer" data-date="2026-08-19" data-phones="+998887970500" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">12:15</div></td>
 <td data-l="Id сделки" class="nowrap">874132</td>
+<td data-l="Мижоз">Mushtariybegim ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998887970500"><span class="pm">+99888***0500</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Mustafoyeva 176 176</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 0 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">mirzo ulugbek tumani  geofizika 42  dom</td>
-<td data-l="Мижоз">Mushtariybegim ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998887970500"><span class="pm">+99888***0500</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Mustafoyeva 176 176<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="mirzo ulugbek tumani  geofizika 42  dom">mirzo ulugbek tumani  geofizika 42  dom</span></td>
 <td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998990342055">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998990342055" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">08:59</div></td>
 <td data-l="Id сделки" class="nowrap">872564</td>
+<td data-l="Мижоз">хуршида опа</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990342055"><span class="pm">+99899***2055</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Андижон</td>
-<td data-l="Адрес">oltinko&#x27;l tumani  navoiy ko&#x27;chasi 32-uy +998950387977</td>
-<td data-l="Мижоз">хуршида опа</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990342055"><span class="pm">+99899***2055</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Телеграмм</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="oltinko&#x27;l tumani  navoiy ko&#x27;chasi 32-uy +998950387977">oltinko&#x27;l tumani  navoiy ko&#x27;chasi 32-uy +998950387977</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998940278736 94 027 87 36">
+<td data-l="Источник">Телеграмм</td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998940278736 94 027 87 36" data-rop="Baza" data-summa="1 100 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">08:55</div></td>
 <td data-l="Id сделки" class="nowrap">870964</td>
+<td data-l="Мижоз">Aqidaxon</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998940278736"><span class="pm">+99894***8736</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="94 027 87 36"><span class="pm">94 027***7 36</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Mustafoyeva 176 176</td>
 <td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 100 000</td>
 <td data-l="Регион">Тошкент вил.</td>
-<td data-l="Адрес">TOSHKENT V TOSHKENT T Kuksaroy KFYO Minvada tomon Soat 4 dan yetkazilsin</td>
-<td data-l="Мижоз">Aqidaxon</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998940278736"><span class="pm">+99894***8736</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="94 027 87 36"><span class="pm">94 027***7 36</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Mustafoyeva 176 176<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="TOSHKENT V TOSHKENT T Kuksaroy KFYO Minvada tomon Soat 4 dan yetkazilsin">TOSHKENT V TOSHKENT T Kuksaroy KFYO Minvada tomon Soat 4 dan yetkazilsin</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998999070719">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998999070719" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-18<div class="muted">19:43</div></td>
 <td data-l="Id сделки" class="nowrap">871062</td>
+<td data-l="Мижоз">Sevara Teshayeva</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999070719"><span class="pm">+99899***0719</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Dinora Jurakulova 174 174</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Buxoro viloyati Gijduvon tumani  Xujayi Jahon savdo kompleks  yoniga yoniga ish joyi</td>
-<td data-l="Мижоз">Sevara Teshayeva</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999070719"><span class="pm">+99899***0719</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Dinora Jurakulova 174 174<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati Gijduvon tumani  Xujayi Jahon savdo kompleks  yoniga yoniga ish joyi">Buxoro viloyati Gijduvon tumani  Xujayi Jahon savdo kompleks  yoniga yoniga ish joyi</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998933839777">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998933839777" data-rop="Baza" data-summa="1 600 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-18<div class="muted">12:23</div></td>
 <td data-l="Id сделки" class="nowrap">868332</td>
+<td data-l="Мижоз">Mavjuda</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933839777"><span class="pm">+99893***9777</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">toshkent shahar yunusabot  shuhrat kuchasi  27- uty 70- maktab va ses markazi kuchasi  gabroyeva mavjuda</td>
-<td data-l="Мижоз">Mavjuda</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933839777"><span class="pm">+99893***9777</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="toshkent shahar yunusabot  shuhrat kuchasi  27- uty 70- maktab va ses markazi kuchasi  gabroyeva mavjuda">toshkent shahar yunusabot  shuhrat kuchasi  27- uty 70- maktab va ses markazi kuchasi  gabroyeva mavjuda</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998958042992">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998958042992" data-rop="Baza" data-summa="1 600 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-18<div class="muted">10:14</div></td>
 <td data-l="Id сделки" class="nowrap">867144</td>
+<td data-l="Мижоз">Dilorom</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998958042992"><span class="pm">+99895***2992</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 1 ta<br>Sinolife D3+K2 Marmelad gummy - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Сурхондарё</td>
-<td data-l="Адрес">Surxondaryo viloyati Denov tumani G`alaba MFY  or: Xayraobod post yoni</td>
-<td data-l="Мижоз">Dilorom</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998958042992"><span class="pm">+99895***2992</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Surxondaryo viloyati Denov tumani G`alaba MFY  or: Xayraobod post yoni">Surxondaryo viloyati Denov tumani G`alaba MFY  or: Xayraobod post yoni</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998972290391">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998972290391" data-rop="Baza" data-summa="800 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-18<div class="muted">08:49</div></td>
 <td data-l="Id сделки" class="nowrap">866492</td>
+<td data-l="Мижоз">Шохиста ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998972290391"><span class="pm">+99897***0391</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">Toshkent shahar mirzo ulug&#x27;bek tumani katta darxon 9 olib qoladi +998940158207 xosiyat</td>
-<td data-l="Мижоз">Шохиста ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998972290391"><span class="pm">+99897***0391</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent shahar mirzo ulug&#x27;bek tumani katta darxon 9 olib qoladi +998940158207 xosiyat">Toshkent shahar mirzo ulug&#x27;bek tumani katta darxon 9 olib qoladi +998940158207 xosiyat</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998990444190 990444190">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-18" data-phones="+998990444190 990444190" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-18<div class="muted">08:35</div></td>
 <td data-l="Id сделки" class="nowrap">866450</td>
+<td data-l="Мижоз">Дилнавоз</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990444190"><span class="pm">+99899***4190</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="990444190"><span class="pm">990444190</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес">фаргона вилояти маргилон шахар  гулистон  мах бурхониддин  маргилоний кучаси   15 уй 38 хонадон  +998772601707 farzandlari</td>
-<td data-l="Мижоз">Дилнавоз</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990444190"><span class="pm">+99899***4190</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="990444190"><span class="pm">990444190</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="фаргона вилояти маргилон шахар  гулистон  мах бурхониддин  маргилоний кучаси   15 уй 38 хонадон  +998772601707 farzandlari">фаргона вилояти маргилон шахар  гулистон  мах бурхониддин  маргилоний кучаси   15 уй 38 хонадон  +998772601707 farzandlari</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998911031199">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998911031199" data-rop="Baza" data-summa="850 000">
+
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">17:08</div></td>
 <td data-l="Id сделки" class="nowrap">864270</td>
+<td data-l="Мижоз">Guliruhsor ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998911031199"><span class="pm">+99891***1199</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Mustafoyeva 176 176</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">850 000</td>
 <td data-l="Регион">Сирдарё</td>
-<td data-l="Адрес">Sirdaryo tuman Mikrokridit bank</td>
-<td data-l="Мижоз">Guliruhsor ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998911031199"><span class="pm">+99891***1199</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Mustafoyeva 176 176<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Sirdaryo tuman Mikrokridit bank">Sirdaryo tuman Mikrokridit bank</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998915401979 +998884067254">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998915401979 +998884067254" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">15:41</div></td>
 <td data-l="Id сделки" class="nowrap">863416</td>
+<td data-l="Мижоз">Ra&#x27;no SARAFAN Дилбар Намуратова</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998915401979"><span class="pm">+99891***1979</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998884067254"><span class="pm">+99888***7254</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Dinora Jurakulova 174 174</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Самарқанд</td>
-<td data-l="Адрес">Samarqand shahar Temiryul vakzal ort 52 - bog&#x27;cha Ra&#x27;no opa qabul qilib oladi</td>
-<td data-l="Мижоз">Ra&#x27;no SARAFAN Дилбар Намуратова</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998915401979"><span class="pm">+99891***1979</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998884067254"><span class="pm">+99888***7254</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Dinora Jurakulova 174 174<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Samarqand shahar Temiryul vakzal ort 52 - bog&#x27;cha Ra&#x27;no opa qabul qilib oladi">Samarqand shahar Temiryul vakzal ort 52 - bog&#x27;cha Ra&#x27;no opa qabul qilib oladi</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998943960264 +998900000264">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998943960264 +998900000264" data-rop="Baza" data-summa="2 200 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">15:34</div></td>
 <td data-l="Id сделки" class="nowrap">863358</td>
+<td data-l="Мижоз">FERUZA 31 YOSH  eri Yoqubjon 900000264</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998943960264"><span class="pm">+99894***0264</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998900000264"><span class="pm">+99890***0264</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Dinora Jurakulova 174 174</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 3 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">2 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">YASHNABOT  PARKENT 446 30   |  +998900000264 raqamiga aloqaga chiqib tasdiqlansin</td>
-<td data-l="Мижоз">FERUZA 31 YOSH  eri Yoqubjon 900000264</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998943960264"><span class="pm">+99894***0264</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998900000264"><span class="pm">+99890***0264</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Dinora Jurakulova 174 174<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="YASHNABOT  PARKENT 446 30   |  +998900000264 raqamiga aloqaga chiqib tasdiqlansin">YASHNABOT  PARKENT 446 30   |  +998900000264 raqamiga aloqaga chiqib tasdiqlansin</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998907153156">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998907153156" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">12:47</div></td>
 <td data-l="Id сделки" class="nowrap">861710</td>
+<td data-l="Мижоз">Dilnoza</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998907153156"><span class="pm">+99890***3156</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Buxoro viloyati Buxoro shahar  To`qimachilar bozor  +998507732340</td>
-<td data-l="Мижоз">Dilnoza</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998907153156"><span class="pm">+99890***3156</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati Buxoro shahar  To`qimachilar bozor  +998507732340">Buxoro viloyati Buxoro shahar  To`qimachilar bozor  +998507732340</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998931962364">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998931962364" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">11:04</div></td>
 <td data-l="Id сделки" class="nowrap">860946</td>
+<td data-l="Мижоз">Lalixon</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931962364"><span class="pm">+99893***2364</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес">Beshariq tumani, Mulkobod mfy, Qorasuv kuchasi 31-uy ertaga 18.08.26 ga qo&#x27;liga borsin</td>
-<td data-l="Мижоз">Lalixon</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931962364"><span class="pm">+99893***2364</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Beshariq tumani, Mulkobod mfy, Qorasuv kuchasi 31-uy ertaga 18.08.26 ga qo&#x27;liga borsin">Beshariq tumani, Mulkobod mfy, Qorasuv kuchasi 31-uy ertaga 18.08.26 ga qo&#x27;liga borsin</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998950501523">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998950501523" data-rop="Baza" data-summa="1 000 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">09:04</div></td>
 <td data-l="Id сделки" class="nowrap">859726</td>
+<td data-l="Мижоз">Nargiza</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998950501523"><span class="pm">+99895***1523</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Alimova Nafisa 221 221</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 000 000</td>
 <td data-l="Регион">Наманган</td>
-<td data-l="Адрес">namangan wahri  boburshox ko&#x27;chasi doctor a klinikasi</td>
-<td data-l="Мижоз">Nargiza</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998950501523"><span class="pm">+99895***1523</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Alimova Nafisa 221 221<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="namangan wahri  boburshox ko&#x27;chasi doctor a klinikasi">namangan wahri  boburshox ko&#x27;chasi doctor a klinikasi</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998507971010">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-17" data-phones="+998507971010" data-rop="Baza" data-summa="900 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-17<div class="muted">08:58</div></td>
 <td data-l="Id сделки" class="nowrap">859688</td>
+<td data-l="Мижоз">Guli азимова</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998507971010"><span class="pm">+99850***1010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Alimova Nafisa 221 221</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Андижон</td>
-<td data-l="Адрес">олтинкул тумани арентр ишонч +998947013297</td>
-<td data-l="Мижоз">Guli азимова</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998507971010"><span class="pm">+99850***1010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Alimova Nafisa 221 221<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="олтинкул тумани арентр ишонч +998947013297">олтинкул тумани арентр ишонч +998947013297</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998993140672">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998993140672" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">008</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">17:53</div></td>
 <td data-l="Id сделки" class="nowrap">854210</td>
+<td data-l="Мижоз">Наргиза Хасанова</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993140672"><span class="pm">+99899***0672</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес">Farg&#x27;ona viloyati o&#x27;zbekiston tumani o&#x27;qchi tuman botir MFY 58-maktab   +998973350672</td>
-<td data-l="Мижоз">Наргиза Хасанова</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993140672"><span class="pm">+99899***0672</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Сммщик sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Farg&#x27;ona viloyati o&#x27;zbekiston tumani o&#x27;qchi tuman botir MFY 58-maktab   +998973350672">Farg&#x27;ona viloyati o&#x27;zbekiston tumani o&#x27;qchi tuman botir MFY 58-maktab   +998973350672</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998881511765 +998917211965">
+<td data-l="Источник">Сммщик sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998881511765 +998917211965" data-rop="Baza" data-summa="1 700 000">
+
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">17:14</div></td>
 <td data-l="Id сделки" class="nowrap">200152</td>
+<td data-l="Мижоз">Dilorom ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998881511765"><span class="pm">+99888***1765</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998917211965"><span class="pm">+99891***1965</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 700 000</td>
 <td data-l="Регион">Сурхондарё</td>
-<td data-l="Адрес">Surxondaryo  viloyati  Boysun tumani Tuzbozor  MFY  Mehridaryo kuchasi  7- uy</td>
-<td data-l="Мижоз">Dilorom ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998881511765"><span class="pm">+99888***1765</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998917211965"><span class="pm">+99891***1965</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Surxondaryo  viloyati  Boysun tumani Tuzbozor  MFY  Mehridaryo kuchasi  7- uy">Surxondaryo  viloyati  Boysun tumani Tuzbozor  MFY  Mehridaryo kuchasi  7- uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998912617170">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998912617170" data-rop="Baza" data-summa="1 600 000">
+
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">14:50</div></td>
 <td data-l="Id сделки" class="nowrap">852504</td>
+<td data-l="Мижоз">Matnazarova Barno</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912617170"><span class="pm">+99891***7170</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Mustafoyeva 176 176</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Tibbio tibomed sedana - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Нукус</td>
-<td data-l="Адрес">Qoraqalpog&#x27;iston Respublikasi Qo&#x27;ng&#x27;irot tumani Shahar markaziy kasalxonasi R. Abdullayev ko&#x27;chasi 6-uy</td>
-<td data-l="Мижоз">Matnazarova Barno</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912617170"><span class="pm">+99891***7170</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Mustafoyeva 176 176<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qoraqalpog&#x27;iston Respublikasi Qo&#x27;ng&#x27;irot tumani Shahar markaziy kasalxonasi R. Abdullayev ko&#x27;chasi 6-uy">Qoraqalpog&#x27;iston Respublikasi Qo&#x27;ng&#x27;irot tumani Shahar markaziy kasalxonasi R. Abdullayev ko&#x27;chasi 6-uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998936064555">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998936064555" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">11:46</div></td>
 <td data-l="Id сделки" class="nowrap">851216</td>
+<td data-l="Мижоз">Muxlisa Saidova Мухлиса</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998936064555"><span class="pm">+99893***4555</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Alimova Nafisa 221 221</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Rometon tumani Guliston mahalla Ibn sino kuchasi 19- uy  +998943275555</td>
-<td data-l="Мижоз">Muxlisa Saidova Мухлиса</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998936064555"><span class="pm">+99893***4555</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Alimova Nafisa 221 221<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Rometon tumani Guliston mahalla Ibn sino kuchasi 19- uy  +998943275555">Rometon tumani Guliston mahalla Ibn sino kuchasi 19- uy  +998943275555</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998932280609">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998932280609" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">11:04</div></td>
 <td data-l="Id сделки" class="nowrap">850776</td>
+<td data-l="Мижоз">Nafisa</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998932280609"><span class="pm">+99893***0609</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Axtamova 177 177</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Самарқанд</td>
-<td data-l="Адрес">Samarqand v Qushrabot t Deyora tuyxona</td>
-<td data-l="Мижоз">Nafisa</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998932280609"><span class="pm">+99893***0609</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Axtamova 177 177<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Samarqand v Qushrabot t Deyora tuyxona">Samarqand v Qushrabot t Deyora tuyxona</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998772561719">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998772561719" data-rop="Baza" data-summa="3 000 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">10:34</div></td>
 <td data-l="Id сделки" class="nowrap">850490</td>
+<td data-l="Мижоз">mijoz</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998772561719"><span class="pm">+99877***1719</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Hazratova Shaxrizoda 222 222</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 0 ta<br>Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 4 ta</td>
 <td data-l="Сумма" class="nowrap">3 000 000</td>
 <td data-l="Регион">Сурхондарё</td>
-<td data-l="Адрес">Dinov tumani Yangi xazorbog MFE</td>
-<td data-l="Мижоз">mijoz</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998772561719"><span class="pm">+99877***1719</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Hazratova Shaxrizoda 222 222<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Dinov tumani Yangi xazorbog MFE">Dinov tumani Yangi xazorbog MFE</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998932641720">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998932641720" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">10:34</div></td>
 <td data-l="Id сделки" class="nowrap">850502</td>
+<td data-l="Мижоз">Дилдора</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998932641720"><span class="pm">+99893***1720</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ibroximova Sevara 220 220</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Навоий</td>
-<td data-l="Адрес">zarafshon shaxar 2-mikrarayon 11- dom 6- kavrtyira</td>
-<td data-l="Мижоз">Дилдора</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998932641720"><span class="pm">+99893***1720</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ibroximova Sevara 220 220<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="zarafshon shaxar 2-mikrarayon 11- dom 6- kavrtyira">zarafshon shaxar 2-mikrarayon 11- dom 6- kavrtyira</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998912446425 91 244 64 25">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-15" data-phones="+998912446425 91 244 64 25" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-15<div class="muted">10:17</div></td>
 <td data-l="Id сделки" class="nowrap">850334</td>
+<td data-l="Мижоз">Зебо</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912446425"><span class="pm">+99891***6425</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="91 244 64 25"><span class="pm">91 244***4 25</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Hazratova Shaxrizoda 222 222</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Buxoro viloyati Buxoro shahar pochtasi +998914464050 Qizlari Ruxshonabonu</td>
-<td data-l="Мижоз">Зебо</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912446425"><span class="pm">+99891***6425</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="91 244 64 25"><span class="pm">91 244***4 25</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Hazratova Shaxrizoda 222 222<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati Buxoro shahar pochtasi +998914464050 Qizlari Ruxshonabonu">Buxoro viloyati Buxoro shahar pochtasi +998914464050 Qizlari Ruxshonabonu</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998901213999">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998901213999" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">009</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">19:52</div></td>
 <td data-l="Id сделки" class="nowrap">848272</td>
+<td data-l="Мижоз">Zulfizar opa ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998901213999"><span class="pm">+99890***3999</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Қашқадарё</td>
-<td data-l="Адрес">Qashqadaryo viloyati  Shahrisabz tumani  Chorshanba qishlog&#x27;i</td>
-<td data-l="Мижоз">Zulfizar opa ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998901213999"><span class="pm">+99890***3999</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qashqadaryo viloyati  Shahrisabz tumani  Chorshanba qishlog&#x27;i">Qashqadaryo viloyati  Shahrisabz tumani  Chorshanba qishlog&#x27;i</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998933434010">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998933434010" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">008</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">18:02</div></td>
 <td data-l="Id сделки" class="nowrap">847880</td>
+<td data-l="Мижоз">Kamola</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933434010"><span class="pm">+99893***4010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Dinora Jurakulova 174 174</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Андижон</td>
-<td data-l="Адрес">QORGONTEPA TUMANI SULTONOB QISHLOGI OLIMOTA KOCHASI 14-UY  +998932192244</td>
-<td data-l="Мижоз">Kamola</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933434010"><span class="pm">+99893***4010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Dinora Jurakulova 174 174<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="QORGONTEPA TUMANI SULTONOB QISHLOGI OLIMOTA KOCHASI 14-UY  +998932192244">QORGONTEPA TUMANI SULTONOB QISHLOGI OLIMOTA KOCHASI 14-UY  +998932192244</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998931028300">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998931028300" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">17:11</div></td>
 <td data-l="Id сделки" class="nowrap">838360</td>
+<td data-l="Мижоз">Шахноза Оликулова ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931028300"><span class="pm">+99893***8300</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Навоий</td>
-<td data-l="Адрес">Навоий шахар Amir temur kocha 1513 shar hokimyatdan otib hovlilarga</td>
-<td data-l="Мижоз">Шахноза Оликулова ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931028300"><span class="pm">+99893***8300</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Навоий шахар Amir temur kocha 1513 shar hokimyatdan otib hovlilarga">Навоий шахар Amir temur kocha 1513 shar hokimyatdan otib hovlilarga</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998916449148 91 644 91 48">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998916449148 91 644 91 48" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">15:29</div></td>
 <td data-l="Id сделки" class="nowrap">846868</td>
+<td data-l="Мижоз">Dilshoda</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916449148"><span class="pm">+99891***9148</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="91 644 91 48"><span class="pm">91 644***1 48</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Қашқадарё</td>
-<td data-l="Адрес">Qashqadaryo viloyati, Shahrisabz tuman Xontepa MFY Shukrona 451-uy +998881009300</td>
-<td data-l="Мижоз">Dilshoda</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916449148"><span class="pm">+99891***9148</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="91 644 91 48"><span class="pm">91 644***1 48</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qashqadaryo viloyati, Shahrisabz tuman Xontepa MFY Shukrona 451-uy +998881009300">Qashqadaryo viloyati, Shahrisabz tuman Xontepa MFY Shukrona 451-uy +998881009300</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998941906702">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998941906702" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">15:02</div></td>
 <td data-l="Id сделки" class="nowrap">846670</td>
+<td data-l="Мижоз">Шахноза</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998941906702"><span class="pm">+99894***6702</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Жиззах</td>
-<td data-l="Адрес">Jizzax viloyati  Do&#x27;stlik tumani  Mingchinor masjit</td>
-<td data-l="Мижоз">Шахноза</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998941906702"><span class="pm">+99894***6702</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted"></div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Jizzax viloyati  Do&#x27;stlik tumani  Mingchinor masjit">Jizzax viloyati  Do&#x27;stlik tumani  Mingchinor masjit</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998995026010">
+<td data-l="Источник">—</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998995026010" data-rop="Baza" data-summa="800 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">14:59</div></td>
 <td data-l="Id сделки" class="nowrap">800992</td>
+<td data-l="Мижоз">Matluba</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998995026010"><span class="pm">+99899***6010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ziyoda Ashirova 170 170</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Хоразм</td>
-<td data-l="Адрес">xiva shahri</td>
-<td data-l="Мижоз">Matluba</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998995026010"><span class="pm">+99899***6010</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ziyoda Ashirova 170 170<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="xiva shahri">xiva shahri</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998907128090 +998919213005">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998907128090 +998919213005" data-rop="Baza" data-summa="850 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">12:43</div></td>
 <td data-l="Id сделки" class="nowrap">845986</td>
+<td data-l="Мижоз">Madina</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998907128090"><span class="pm">+99890***8090</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998919213005"><span class="pm">+99891***3005</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Axtamova 177 177</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 1 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">850 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">g&#x27;ijduvon tumani yusuf hamadoniy ko&#x27;chasi baxor market</td>
-<td data-l="Мижоз">Madina</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998907128090"><span class="pm">+99890***8090</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998919213005"><span class="pm">+99891***3005</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Axtamova 177 177<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="g&#x27;ijduvon tumani yusuf hamadoniy ko&#x27;chasi baxor market">g&#x27;ijduvon tumani yusuf hamadoniy ko&#x27;chasi baxor market</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998904901777">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-14" data-phones="+998904901777" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">12:23</div></td>
 <td data-l="Id сделки" class="nowrap">817290</td>
+<td data-l="Мижоз">Zuxra 32 ёшда</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998904901777"><span class="pm">+99890***1777</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Жиззах</td>
-<td data-l="Адрес">Жиззах вилояти Зомин тумани даштабод шахри янги узбекистон кучаси нурафшон мах</td>
-<td data-l="Мижоз">Zuxra 32 ёшда</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998904901777"><span class="pm">+99890***1777</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Жиззах вилояти Зомин тумани даштабод шахри янги узбекистон кучаси нурафшон мах">Жиззах вилояти Зомин тумани даштабод шахри янги узбекистон кучаси нурафшон мах</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="rejected" data-date="2026-08-14" data-phones="+998990823921 +998993100261">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="rejected" data-date="2026-08-14" data-phones="+998990823921 +998993100261" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-14<div class="muted">09:46</div></td>
 <td data-l="Id сделки" class="nowrap">824678</td>
+<td data-l="Мижоз">umar ayoli nargiza</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990823921"><span class="pm">+99899***3921</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998993100261"><span class="pm">+99899***0261</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Самарқанд</td>
-<td data-l="Адрес">samarqand shaxar kuksaroy maydoni 1-uy +998973966181</td>
-<td data-l="Мижоз">umar ayoli nargiza</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990823921"><span class="pm">+99899***3921</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998993100261"><span class="pm">+99899***0261</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="samarqand shaxar kuksaroy maydoni 1-uy +998973966181">samarqand shaxar kuksaroy maydoni 1-uy +998973966181</span></td>
 <td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998943240767 943240767">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998943240767 943240767" data-rop="Baza" data-summa="800 000">
+
 <td data-l="№" class="nowrap">015</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">17:12</div></td>
 <td data-l="Id сделки" class="nowrap">841692</td>
+<td data-l="Мижоз">gulxayo</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998943240767"><span class="pm">+99894***0767</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="943240767"><span class="pm">943240767</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife D3+K2 Marmelad gummy - 2 ta</td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес">Buxoro viloyati qorakul tumani Qazon MFY Pirlar qishlog`i</td>
-<td data-l="Мижоз">gulxayo</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998943240767"><span class="pm">+99894***0767</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="943240767"><span class="pm">943240767</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati qorakul tumani Qazon MFY Pirlar qishlog`i">Buxoro viloyati qorakul tumani Qazon MFY Pirlar qishlog`i</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="rejected" data-date="2026-08-13" data-phones="+998931178272">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="rejected" data-date="2026-08-13" data-phones="+998931178272" data-rop="Baza" data-summa="1 600 000">
+
 <td data-l="№" class="nowrap">012</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">16:03</div></td>
 <td data-l="Id сделки" class="nowrap">835150</td>
+<td data-l="Мижоз">Baxriniso</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931178272"><span class="pm">+99893***8272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес">Quva tumani Quva kiyim bozori oldiga Soat 4 gacha borsin +998941266300</td>
-<td data-l="Мижоз">Baxriniso</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931178272"><span class="pm">+99893***8272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Quva tumani Quva kiyim bozori oldiga Soat 4 gacha borsin +998941266300">Quva tumani Quva kiyim bozori oldiga Soat 4 gacha borsin +998941266300</span></td>
 <td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998990172888 +998991147615">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998990172888 +998991147615" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">013</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">16:03</div></td>
 <td data-l="Id сделки" class="nowrap">834740</td>
+<td data-l="Мижоз">Mastura</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990172888"><span class="pm">+99899***2888</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998991147615"><span class="pm">+99899***7615</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Сурхондарё</td>
-<td data-l="Адрес">Термез щахар астория ресторани йонига</td>
-<td data-l="Мижоз">Mastura</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990172888"><span class="pm">+99899***2888</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998991147615"><span class="pm">+99899***7615</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Термез щахар астория ресторани йонига">Термез щахар астория ресторани йонига</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="rejected" data-date="2026-08-13" data-phones="+998998427895">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="rejected" data-date="2026-08-13" data-phones="+998998427895" data-rop="Baza" data-summa="0">
+
 <td data-l="№" class="nowrap">014</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">16:03</div></td>
 <td data-l="Id сделки" class="nowrap">242798</td>
+<td data-l="Мижоз">Мижоз</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998427895"><span class="pm">+99899***7895</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Axtamova 177 177</td>
 <td data-l="Продукт" class="prod">—</td>
 <td data-l="Сумма" class="nowrap">0</td>
 <td data-l="Регион">—</td>
-<td data-l="Адрес">—</td>
-<td data-l="Мижоз">Мижоз</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998427895"><span class="pm">+99899***7895</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Axtamova 177 177<div class="muted">Instagram</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="—">—</span></td>
 <td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998999272172 +998977122172">
+<td data-l="Источник">Instagram</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998999272172 +998977122172" data-rop="Baza" data-summa="3 000 000">
+
 <td data-l="№" class="nowrap">011</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">15:42</div></td>
 <td data-l="Id сделки" class="nowrap">841188</td>
+<td data-l="Мижоз">Санобар Abdugamitova</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999272172"><span class="pm">+99899***2172</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998977122172"><span class="pm">+99897***2172</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Sabina Mustafoyeva 176 176</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 4 ta</td>
 <td data-l="Сумма" class="nowrap">3 000 000</td>
 <td data-l="Регион">Тошкент вил.</td>
-<td data-l="Адрес">Qibray Rayon yoshlik bog&#x27;i kuchasi 2 uy +998977122172 ugli</td>
-<td data-l="Мижоз">Санобар Abdugamitova</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999272172"><span class="pm">+99899***2172</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998977122172"><span class="pm">+99897***2172</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Sabina Mustafoyeva 176 176<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qibray Rayon yoshlik bog&#x27;i kuchasi 2 uy +998977122172 ugli">Qibray Rayon yoshlik bog&#x27;i kuchasi 2 uy +998977122172 ugli</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998909385545">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998909385545" data-rop="Baza" data-summa="1 750 000">
+
 <td data-l="№" class="nowrap">010</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">15:38</div></td>
 <td data-l="Id сделки" class="nowrap">841166</td>
+<td data-l="Мижоз">Нодира</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998909385545"><span class="pm">+99890***5545</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ibroximova Sevara 220 220</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 750 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">sergili</td>
-<td data-l="Мижоз">Нодира</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998909385545"><span class="pm">+99890***5545</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ibroximova Sevara 220 220<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="sergili">sergili</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998950483038">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998950483038" data-rop="Baza" data-summa="800 000">
+
 <td data-l="№" class="nowrap">009</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">15:02</div></td>
 <td data-l="Id сделки" class="nowrap">836010</td>
+<td data-l="Мижоз">Guli Alimova ig</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998950483038"><span class="pm">+99895***3038</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Hazratova Shaxrizoda 222 222</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 0 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Тошкент вил.</td>
-<td data-l="Адрес">SOBIR RAHIMOV MAHALLASI ULUGBEK KOCHASI 279-UY</td>
-<td data-l="Мижоз">Guli Alimova ig</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998950483038"><span class="pm">+99895***3038</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Hazratova Shaxrizoda 222 222<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="SOBIR RAHIMOV MAHALLASI ULUGBEK KOCHASI 279-UY">SOBIR RAHIMOV MAHALLASI ULUGBEK KOCHASI 279-UY</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998939111737">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998939111737" data-rop="Baza" data-summa="800 000">
+
 <td data-l="№" class="nowrap">008</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">14:37</div></td>
 <td data-l="Id сделки" class="nowrap">840808</td>
+<td data-l="Мижоз">Гулхида</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998939111737"><span class="pm">+99893***1737</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ibroximova Sevara 220 220</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">Toshkent shaxar  Yashnabod tumani  58A harbiy shaxrcha  Olmos MFY 59-uy 13-xonadon</td>
-<td data-l="Мижоз">Гулхида</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998939111737"><span class="pm">+99893***1737</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ibroximova Sevara 220 220<div class="muted">Телеграмм</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent shaxar  Yashnabod tumani  58A harbiy shaxrcha  Olmos MFY 59-uy 13-xonadon">Toshkent shaxar  Yashnabod tumani  58A harbiy shaxrcha  Olmos MFY 59-uy 13-xonadon</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998330140482">
+<td data-l="Источник">Телеграмм</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998330140482" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">10:59</div></td>
 <td data-l="Id сделки" class="nowrap">839208</td>
+<td data-l="Мижоз">Maxkamova Nozimaxon</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998330140482"><span class="pm">+99833***0482</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Андижон</td>
-<td data-l="Адрес">Bo&#x27;ston tumani Markaziy shifoxonaga +998940142437</td>
-<td data-l="Мижоз">Maxkamova Nozimaxon</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998330140482"><span class="pm">+99833***0482</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Bo&#x27;ston tumani Markaziy shifoxonaga +998940142437">Bo&#x27;ston tumani Markaziy shifoxonaga +998940142437</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998337618688">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998337618688" data-rop="Baza" data-summa="900 000">
+
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">10:26</div></td>
 <td data-l="Id сделки" class="nowrap">838924</td>
+<td data-l="Мижоз">Yusupova Nargiza</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998337618688"><span class="pm">+99833***8688</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ibroximova Sevara 220 220</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Жиззах</td>
-<td data-l="Адрес">baxmal tuman oqsaroykocha 8 uy +998999694289</td>
-<td data-l="Мижоз">Yusupova Nargiza</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998337618688"><span class="pm">+99833***8688</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ibroximova Sevara 220 220<div class="muted">sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="baxmal tuman oqsaroykocha 8 uy +998999694289">baxmal tuman oqsaroykocha 8 uy +998999694289</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998954690888">
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998954690888" data-rop="Baza" data-summa="1 600 000">
+
 <td data-l="№" class="nowrap">005</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">10:16</div></td>
 <td data-l="Id сделки" class="nowrap">838808</td>
+<td data-l="Мижоз">sharofat</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998954690888"><span class="pm">+99895***0888</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Навоий</td>
-<td data-l="Адрес">Navoiy viloyati Nurato tumani Said ato mahallasi Ozbekiston 17 uy</td>
-<td data-l="Мижоз">sharofat</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998954690888"><span class="pm">+99895***0888</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Navoiy viloyati Nurato tumani Said ato mahallasi Ozbekiston 17 uy">Navoiy viloyati Nurato tumani Said ato mahallasi Ozbekiston 17 uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998912833132">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998912833132" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">09:23</div></td>
 <td data-l="Id сделки" class="nowrap">838392</td>
+<td data-l="Мижоз">ODINA</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912833132"><span class="pm">+99891***3132</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Rustamova Mohinur 223 223</td>
 <td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес">quva tumani turkurovot 263 -uy   +998944057969</td>
-<td data-l="Мижоз">ODINA</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998912833132"><span class="pm">+99891***3132</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Rustamova Mohinur 223 223<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="quva tumani turkurovot 263 -uy   +998944057969">quva tumani turkurovot 263 -uy   +998944057969</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998936383233">
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998936383233" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">09:05</div></td>
 <td data-l="Id сделки" class="nowrap">838260</td>
+<td data-l="Мижоз">Sarvinoz</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998936383233"><span class="pm">+99893***3233</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Тошкент ш.</td>
-<td data-l="Адрес">Sergili 5/6/5  +998937251507</td>
-<td data-l="Мижоз">Sarvinoz</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998936383233"><span class="pm">+99893***3233</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Входящий</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Sergili 5/6/5  +998937251507">Sergili 5/6/5  +998937251507</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998944171292">
+<td data-l="Источник">Входящий</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998944171292" data-rop="Baza" data-summa="1 500 000">
+
 <td data-l="№" class="nowrap">002</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">09:04</div></td>
 <td data-l="Id сделки" class="nowrap">838250</td>
+<td data-l="Мижоз">Dinara</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998944171292"><span class="pm">+99894***1292</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 2 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Тошкент вил.</td>
-<td data-l="Адрес">Bo&#x27;stonliq tumani , G&#x27;azalkent shahri , Navoiy ko&#x27;chasi 39- uy</td>
-<td data-l="Мижоз">Dinara</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998944171292"><span class="pm">+99894***1292</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Сммщик sinolifeuz</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Bo&#x27;stonliq tumani , G&#x27;azalkent shahri , Navoiy ko&#x27;chasi 39- uy">Bo&#x27;stonliq tumani , G&#x27;azalkent shahri , Navoiy ko&#x27;chasi 39- uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998999029150">
+<td data-l="Источник">Сммщик sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-13" data-phones="+998999029150" data-rop="Baza" data-summa="850 000">
+
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-08-13<div class="muted">08:49</div></td>
 <td data-l="Id сделки" class="nowrap">817384</td>
+<td data-l="Мижоз">Гуллолахон Умаралиевна</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999029150"><span class="pm">+99899***9150</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
 <td data-l="Сумма" class="nowrap">850 000</td>
 <td data-l="Регион">Андижон</td>
-<td data-l="Адрес">shaxrixon tumani besh ariq mfy gulqishloq kuchasi 132-uy</td>
-<td data-l="Мижоз">Гуллолахон Умаралиевна</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999029150"><span class="pm">+99899***9150</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Quvondiqova Gulmira 219 219<div class="muted">Ген лид</div></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="shaxrixon tumani besh ariq mfy gulqishloq kuchasi 132-uy">shaxrixon tumani besh ariq mfy gulqishloq kuchasi 132-uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+<td data-l="Источник">Ген лид</td>
 </tr>
 </tbody></table>
 </div>
+
+<div class="modal" id="stats-modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>📊 Статистика (жорий филтр бўйича)</h2>
+      <button class="close-x" onclick="closeStats()">✕</button>
+    </div>
+    <div id="stats-body"></div>
+  </div>
+</div>
+
 <script>
 var TODAY = "2026-08-19";
+var STATUS_KEYS = ["confirm_new","no_answer","confirmed","rejected"];
+
 function togglePhone(btn){
   var wrap=btn.closest('.ph');
   var span=wrap.querySelector('.pm');
@@ -708,16 +842,24 @@ function togglePhone(btn){
     btn.dataset.shown='1'; btn.textContent='🙈'; btn.title='Яшириш';
   }
 }
+
+function toggleAddr(el){ el.classList.toggle('open'); }
+
 function applyFilters(){
   var q=document.getElementById('q').value.toLowerCase();
   var st=document.getElementById('st').value;
   var d1=document.getElementById('d1').value;
   var d2=document.getElementById('d2').value;
+  var ropEl=document.getElementById('rop');
+  var rop=ropEl?ropEl.value:'';
   var rows=document.querySelectorAll('tbody tr');
   var shown=0;
+  var counts={confirm_new:0,no_answer:0,confirmed:0,rejected:0};
+
   rows.forEach(function(r){
     var ok=true;
     if(st && r.dataset.status!==st) ok=false;
+    if(ok && rop && r.dataset.rop!==rop) ok=false;
     if(ok && d1 && r.dataset.date < d1) ok=false;
     if(ok && d2 && r.dataset.date > d2) ok=false;
     if(ok && q){
@@ -725,28 +867,90 @@ function applyFilters(){
       if(hay.indexOf(q)===-1) ok=false;
     }
     r.style.display = ok ? '' : 'none';
-    if(ok) shown++;
+    if(ok){
+      shown++;
+      if(counts[r.dataset.status]!==undefined) counts[r.dataset.status]++;
+    }
   });
+
   document.getElementById('shown').textContent=shown;
+  var totEl=document.getElementById('c-total');
+  if(totEl) totEl.textContent=shown;
+  STATUS_KEYS.forEach(function(k){
+    var el=document.getElementById('c-'+k);
+    if(el) el.textContent=counts[k];
+  });
 }
+
 function filterToday(){
   document.getElementById('d1').value=TODAY;
   document.getElementById('d2').value=TODAY;
   applyFilters();
 }
+
 function resetF(){
   document.getElementById('q').value='';
   document.getElementById('st').value='';
   document.getElementById('d1').value='';
   document.getElementById('d2').value='';
+  var ropEl=document.getElementById('rop');
+  if(ropEl) ropEl.value='';
   applyFilters();
 }
+
+function openStats(){
+  var rows=document.querySelectorAll('tbody tr');
+  var byRop={};
+  rows.forEach(function(r){
+    if(r.style.display==='none') return;
+    var rop=r.dataset.rop||'—';
+    if(!byRop[rop]) byRop[rop]={total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,summa:0};
+    byRop[rop].total++;
+    if(byRop[rop][r.dataset.status]!==undefined) byRop[rop][r.dataset.status]++;
+    var sm=parseFloat((r.dataset.summa||'0').replace(/[^0-9]/g,''))||0;
+    byRop[rop].summa+=sm;
+  });
+
+  var names=Object.keys(byRop).sort(function(a,b){return byRop[b].total-byRop[a].total});
+  var g={total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,summa:0};
+  var html='<table class="stat-table"><thead><tr>'+
+    '<th>РОП</th><th>Жами</th><th>✅ Тасдиқланди</th><th>🟡 нд</th>'+
+    '<th>❌ Рад</th><th>🕔 Кутилмоқда</th><th>Конверсия</th><th>Сумма</th>'+
+    '</tr></thead><tbody>';
+
+  names.forEach(function(n){
+    var d=byRop[n];
+    ['total','confirm_new','no_answer','confirmed','rejected','summa'].forEach(function(k){g[k]+=d[k]});
+    var pct=d.total?Math.round(d.confirmed/d.total*100):0;
+    html+='<tr><td><b>'+n+'</b></td><td>'+d.total+'</td><td>'+d.confirmed+'</td>'+
+      '<td>'+d.no_answer+'</td><td>'+d.rejected+'</td><td>'+d.confirm_new+'</td>'+
+      '<td><span class="pct">'+pct+'%</span><div class="bar"><span style="width:'+pct+'%"></span></div></td>'+
+      '<td>'+d.summa.toLocaleString('ru-RU')+'</td></tr>';
+  });
+
+  var gp=g.total?Math.round(g.confirmed/g.total*100):0;
+  html+='</tbody><tfoot><tr style="border-top:2px solid var(--border);font-weight:800">'+
+    '<td>ЖАМИ</td><td>'+g.total+'</td><td>'+g.confirmed+'</td><td>'+g.no_answer+'</td>'+
+    '<td>'+g.rejected+'</td><td>'+g.confirm_new+'</td>'+
+    '<td><span class="pct">'+gp+'%</span></td><td>'+g.summa.toLocaleString('ru-RU')+'</td>'+
+    '</tr></tfoot></table>';
+
+  document.getElementById('stats-body').innerHTML=html;
+  document.getElementById('stats-modal').classList.add('show');
+}
+
+function closeStats(){ document.getElementById('stats-modal').classList.remove('show'); }
+
 document.addEventListener('DOMContentLoaded',function(){
-  ['q','st','d1','d2'].forEach(function(id){
+  ['q','st','d1','d2','rop'].forEach(function(id){
     var el=document.getElementById(id);
+    if(!el) return;
     el.addEventListener('input',applyFilters);
     el.addEventListener('change',applyFilters);
   });
+  var m=document.getElementById('stats-modal');
+  if(m) m.addEventListener('click',function(e){ if(e.target===m) closeStats(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeStats(); });
   applyFilters();
   setTimeout(function(){location.reload()}, 120000);
 });
