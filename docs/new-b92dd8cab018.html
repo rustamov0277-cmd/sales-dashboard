@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <title>NEW — буюртмалар</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -10,11 +13,13 @@
   --bg:#f5f7fb;--panel:#ffffff;--panel2:#eef2f8;--border:#dde4ee;
   --text:#1c2533;--muted:#6b7a90;--accent:#2f6fed;--accent2:#7c4dff;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+body{font-family:'Inter','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 background:linear-gradient(165deg,#f5f7fb 0%,#eaf0f9 100%);color:var(--text);
-padding:18px;font-size:14px;min-height:100vh}
-h1{font-size:22px;margin-bottom:4px;font-weight:800;
-background:linear-gradient(90deg,#7c4dff,#2f6fed);-webkit-background-clip:text;
+padding:18px;font-size:14px;min-height:100vh;
+font-feature-settings:'tnum' 1,'cv02' 1,'cv03' 1;-webkit-font-smoothing:antialiased}
+h1{font-family:'Space Grotesk','Inter',sans-serif;font-size:26px;margin-bottom:4px;
+font-weight:700;letter-spacing:-.02em;
+background:linear-gradient(90deg,#7c4dff,#2f6fed 55%,#12b981);-webkit-background-clip:text;
 background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
@@ -22,8 +27,9 @@ background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 padding:12px 16px;min-width:112px;transition:transform .15s,box-shadow .15s;
 box-shadow:0 1px 3px rgba(28,37,51,.06)}
 .stat:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(47,111,237,.14)}
-.stat .n{font-size:24px;font-weight:800;color:var(--text)}
-.stat .l{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;
+.stat .n{font-family:'Space Grotesk','Inter',sans-serif;font-size:26px;font-weight:700;
+color:var(--text);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat .l{font-size:10.5px;font-weight:600;color:var(--muted);margin-top:4px;text-transform:uppercase;
 letter-spacing:.03em}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
 input,select,button{padding:9px 12px;border:1px solid var(--border);border-radius:8px;
@@ -39,11 +45,12 @@ color:#fff}
 .btn-alt:hover{filter:brightness(1.06)}
 .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);
 background:var(--panel);box-shadow:0 1px 3px rgba(28,37,51,.06)}
-table{width:100%;border-collapse:collapse;min-width:1180px}
-th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:11px;font-weight:700;
-color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;
+table{width:100%;border-collapse:collapse;min-width:1260px}
+th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:10.5px;font-weight:700;
+color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;
 border-bottom:1px solid var(--border);position:sticky;top:0;z-index:2}
-td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap}
+td{padding:11px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap;
+font-variant-numeric:tabular-nums}
 tr{transition:background .1s}
 tr:hover td{background:#f3f7ff}
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;
@@ -52,7 +59,9 @@ white-space:nowrap;font-weight:600;border:1px solid transparent}
 .s-no_answer{background:#fff0d8;color:#8a5300;border-color:#f0d7ab}
 .s-confirmed{background:#dcf7e6;color:#0d6b33;border-color:#a9e6c1}
 .s-rejected{background:#ffe3e5;color:#a41722;border-color:#f5b9be}
-.prod{font-size:13px;line-height:1.5;white-space:normal;max-width:260px}
+.prod{font-size:13px;white-space:nowrap;min-width:230px}
+.prod .pl{display:block;line-height:1.35;padding:1px 0}
+.prod .pl:before{content:"• ";color:var(--muted)}
 .muted{color:var(--muted);font-size:12px}
 .nowrap{white-space:nowrap}
 a{color:var(--accent);text-decoration:none}
@@ -71,7 +80,8 @@ padding:24px;overflow-y:auto}
 .modal-box{background:var(--panel);border-radius:14px;max-width:1000px;margin:0 auto;
 padding:22px;box-shadow:0 20px 60px rgba(20,28,42,.25)}
 .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.modal-head h2{font-size:19px;font-weight:800}
+.modal-head h2{font-family:'Space Grotesk','Inter',sans-serif;font-size:20px;font-weight:700;
+letter-spacing:-.01em}
 .close-x{cursor:pointer;border:1px solid var(--border);background:var(--panel2);
 border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--muted)}
 .close-x:hover{color:var(--text);border-color:var(--accent)}
@@ -81,7 +91,8 @@ border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--mu
 .bar{height:7px;border-radius:4px;background:var(--panel2);overflow:hidden;min-width:90px;
 margin-top:5px}
 .bar span{display:block;height:100%;background:linear-gradient(90deg,#12b981,#0ea36b)}
-.pct{font-weight:700}
+.pct{font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;
+font-variant-numeric:tabular-nums}
 @media(max-width:700px){
  body{padding:10px}
  .stat{min-width:92px;padding:10px 12px}
@@ -93,7 +104,7 @@ margin-top:5px}
 </style>
 </head><body>
 <h1>NEW — буюртмалар</h1>
-<div class="sub">Янгиланди: 19.08.2026 15:52 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 19.08.2026 15:55 (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
 <div class="stats"><div class="stat"><div class="n" id="c-total">3</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">0</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">3</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">0</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
@@ -120,7 +131,7 @@ margin-top:5px}
 <td data-l="Мижоз">Без имени</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905004656"><span class="pm">+99890***4656</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Sotuvchi 288 288</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">400 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="ТЕСТ">ТЕСТ</span></td>
@@ -134,7 +145,7 @@ margin-top:5px}
 <td data-l="Мижоз">Дониёр Рустамов Рустамов</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990770849"><span class="pm">+99899***0849</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Sotuvchi 288 288</td>
-<td data-l="Продукт" class="prod">Prox - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Prox - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">650 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="ТЕСТ">ТЕСТ</span></td>
@@ -148,7 +159,7 @@ margin-top:5px}
 <td data-l="Мижоз">Без имени</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905004656"><span class="pm">+99890***4656</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Sotuvchi 288 288</td>
-<td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="ТЕСТ">ТЕСТ</span></td>

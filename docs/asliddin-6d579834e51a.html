@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <title>Asliddin — буюртмалар</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -10,11 +13,13 @@
   --bg:#f5f7fb;--panel:#ffffff;--panel2:#eef2f8;--border:#dde4ee;
   --text:#1c2533;--muted:#6b7a90;--accent:#2f6fed;--accent2:#7c4dff;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+body{font-family:'Inter','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 background:linear-gradient(165deg,#f5f7fb 0%,#eaf0f9 100%);color:var(--text);
-padding:18px;font-size:14px;min-height:100vh}
-h1{font-size:22px;margin-bottom:4px;font-weight:800;
-background:linear-gradient(90deg,#7c4dff,#2f6fed);-webkit-background-clip:text;
+padding:18px;font-size:14px;min-height:100vh;
+font-feature-settings:'tnum' 1,'cv02' 1,'cv03' 1;-webkit-font-smoothing:antialiased}
+h1{font-family:'Space Grotesk','Inter',sans-serif;font-size:26px;margin-bottom:4px;
+font-weight:700;letter-spacing:-.02em;
+background:linear-gradient(90deg,#7c4dff,#2f6fed 55%,#12b981);-webkit-background-clip:text;
 background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
@@ -22,8 +27,9 @@ background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 padding:12px 16px;min-width:112px;transition:transform .15s,box-shadow .15s;
 box-shadow:0 1px 3px rgba(28,37,51,.06)}
 .stat:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(47,111,237,.14)}
-.stat .n{font-size:24px;font-weight:800;color:var(--text)}
-.stat .l{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;
+.stat .n{font-family:'Space Grotesk','Inter',sans-serif;font-size:26px;font-weight:700;
+color:var(--text);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat .l{font-size:10.5px;font-weight:600;color:var(--muted);margin-top:4px;text-transform:uppercase;
 letter-spacing:.03em}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
 input,select,button{padding:9px 12px;border:1px solid var(--border);border-radius:8px;
@@ -39,11 +45,12 @@ color:#fff}
 .btn-alt:hover{filter:brightness(1.06)}
 .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);
 background:var(--panel);box-shadow:0 1px 3px rgba(28,37,51,.06)}
-table{width:100%;border-collapse:collapse;min-width:1180px}
-th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:11px;font-weight:700;
-color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;
+table{width:100%;border-collapse:collapse;min-width:1260px}
+th{background:var(--panel2);padding:11px 12px;text-align:left;font-size:10.5px;font-weight:700;
+color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;
 border-bottom:1px solid var(--border);position:sticky;top:0;z-index:2}
-td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap}
+td{padding:11px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:nowrap;
+font-variant-numeric:tabular-nums}
 tr{transition:background .1s}
 tr:hover td{background:#f3f7ff}
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;
@@ -52,7 +59,9 @@ white-space:nowrap;font-weight:600;border:1px solid transparent}
 .s-no_answer{background:#fff0d8;color:#8a5300;border-color:#f0d7ab}
 .s-confirmed{background:#dcf7e6;color:#0d6b33;border-color:#a9e6c1}
 .s-rejected{background:#ffe3e5;color:#a41722;border-color:#f5b9be}
-.prod{font-size:13px;line-height:1.5;white-space:normal;max-width:260px}
+.prod{font-size:13px;white-space:nowrap;min-width:230px}
+.prod .pl{display:block;line-height:1.35;padding:1px 0}
+.prod .pl:before{content:"• ";color:var(--muted)}
 .muted{color:var(--muted);font-size:12px}
 .nowrap{white-space:nowrap}
 a{color:var(--accent);text-decoration:none}
@@ -71,7 +80,8 @@ padding:24px;overflow-y:auto}
 .modal-box{background:var(--panel);border-radius:14px;max-width:1000px;margin:0 auto;
 padding:22px;box-shadow:0 20px 60px rgba(20,28,42,.25)}
 .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.modal-head h2{font-size:19px;font-weight:800}
+.modal-head h2{font-family:'Space Grotesk','Inter',sans-serif;font-size:20px;font-weight:700;
+letter-spacing:-.01em}
 .close-x{cursor:pointer;border:1px solid var(--border);background:var(--panel2);
 border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--muted)}
 .close-x:hover{color:var(--text);border-color:var(--accent)}
@@ -81,7 +91,8 @@ border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--mu
 .bar{height:7px;border-radius:4px;background:var(--panel2);overflow:hidden;min-width:90px;
 margin-top:5px}
 .bar span{display:block;height:100%;background:linear-gradient(90deg,#12b981,#0ea36b)}
-.pct{font-weight:700}
+.pct{font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;
+font-variant-numeric:tabular-nums}
 @media(max-width:700px){
  body{padding:10px}
  .stat{min-width:92px;padding:10px 12px}
@@ -93,7 +104,7 @@ margin-top:5px}
 </style>
 </head><body>
 <h1>Asliddin — буюртмалар</h1>
-<div class="sub">Янгиланди: 19.08.2026 15:52 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 19.08.2026 15:55 (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
 <div class="stats"><div class="stat"><div class="n" id="c-total">83</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">74</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">7</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
@@ -120,7 +131,7 @@ margin-top:5px}
 <td data-l="Мижоз">Guzal</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998507174215"><span class="pm">+99850***4215</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="qoqon sh istiqlol kocha qoqon xonsaroy">qoqon sh istiqlol kocha qoqon xonsaroy</span></td>
@@ -134,7 +145,7 @@ margin-top:5px}
 <td data-l="Мижоз">Умида</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998915954415"><span class="pm">+99891***4415</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998952654415"><span class="pm">+99895***4415</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Feruza Ikromaliyeva 151 151</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Жиззах</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Jizzax shahar Sovungarlik mahallasi Qoshnor kochasi 23 chi uy">Jizzax shahar Sovungarlik mahallasi Qoshnor kochasi 23 chi uy</span></td>
@@ -148,7 +159,7 @@ margin-top:5px}
 <td data-l="Мижоз">Azamjon O&#x27;rimov G&#x27;ofurjonovich</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998598814"><span class="pm">+99899***8814</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="orta chirchiq tumani  Nondanak qishlogi 34-uy">orta chirchiq tumani  Nondanak qishlogi 34-uy</span></td>
@@ -162,7 +173,7 @@ margin-top:5px}
 <td data-l="Мижоз">Rajjabov Dilyor</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998951805871"><span class="pm">+99895***5871</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Zohirbek Sobirovich 208 208</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati Shofirko&#x27;n tumani Tezguzar mahallasi 149-uy   +998997055871">Buxoro viloyati Shofirko&#x27;n tumani Tezguzar mahallasi 149-uy   +998997055871</span></td>
@@ -176,7 +187,7 @@ margin-top:5px}
 <td data-l="Мижоз">abdusamad</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998157147"><span class="pm">+99899***7147</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yangi hayot t choshtepa 381  ort. rio internatsional fermas">Yangi hayot t choshtepa 381  ort. rio internatsional fermas</span></td>
@@ -190,7 +201,7 @@ margin-top:5px}
 <td data-l="Мижоз">Jo‘rabek</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998951789596"><span class="pm">+99895***9596</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Feruza Ikromaliyeva 151 151</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Dehqonobod tumani Oqirtma qishloq  +998994117896 Dadalari">Dehqonobod tumani Oqirtma qishloq  +998994117896 Dadalari</span></td>
@@ -204,7 +215,7 @@ margin-top:5px}
 <td data-l="Мижоз">ESHPOLATOVA FERUZA</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998901339390"><span class="pm">+99890***9390</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Omad Nuriddinov 149 149</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="NURAFSHON SHAHAR OZODLIK KOCHASI 7 UY +998903246292">NURAFSHON SHAHAR OZODLIK KOCHASI 7 UY +998903246292</span></td>
@@ -218,7 +229,7 @@ margin-top:5px}
 <td data-l="Мижоз">Zarifa</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933916712"><span class="pm">+99893***6712</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="YUNOSOBIOD TENNISNI KURT IFIXOR KOCAS 117 CI DOM 12 KVARTR 2 CI PODYEZ">YUNOSOBIOD TENNISNI KURT IFIXOR KOCAS 117 CI DOM 12 KVARTR 2 CI PODYEZ</span></td>
@@ -232,7 +243,7 @@ margin-top:5px}
 <td data-l="Мижоз">Ilimov Jasur</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998938724361"><span class="pm">+99893***4361</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Жиззах</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Sharof rashidov uchtepa tumani arentr uchtepa hokimiyat">Sharof rashidov uchtepa tumani arentr uchtepa hokimiyat</span></td>
@@ -246,7 +257,7 @@ margin-top:5px}
 <td data-l="Мижоз">Zulfiya olonazarova  Tamirbayevna</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993482472"><span class="pm">+99899***2472</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Kist al hindi Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Хоразм</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Xorazm viloyati  gurlyan shaxar  moyli mfy 9-uy">Xorazm viloyati  gurlyan shaxar  moyli mfy 9-uy</span></td>
@@ -260,7 +271,7 @@ margin-top:5px}
 <td data-l="Мижоз">Umarova Maxsuda Rahimjanovna</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999827573"><span class="pm">+99899***7573</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Namangan shaxar  Toshbuloq shaxarchasi or 22-maktabni orqasi    +998943031249">Namangan shaxar  Toshbuloq shaxarchasi or 22-maktabni orqasi    +998943031249</span></td>
@@ -274,7 +285,7 @@ margin-top:5px}
 <td data-l="Мижоз">Dilmurod</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993139997"><span class="pm">+99899***9997</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998983339997"><span class="pm">+99898***9997</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Muzaffar Abdumannobov 152 152</td>
-<td data-l="Продукт" class="prod">Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yashnobod tumani izzat 58 drop 6 34 xonadon">yashnobod tumani izzat 58 drop 6 34 xonadon</span></td>
@@ -288,7 +299,7 @@ margin-top:5px}
 <td data-l="Мижоз">Anvarjon</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999701541"><span class="pm">+99899***1541</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">850 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Fargona buvayda tumani yangi qorgon shaxarchasi sentriga">Fargona buvayda tumani yangi qorgon shaxarchasi sentriga</span></td>
@@ -302,7 +313,7 @@ margin-top:5px}
 <td data-l="Мижоз">Урал</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998701322202"><span class="pm">+99870***2202</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Feruza Ikromaliyeva 151 151</td>
-<td data-l="Продукт" class="prod">Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Сурхондарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Сурхондаре шерабод гурин махалла imom termiz burilish chorahha">Сурхондаре шерабод гурин махалла imom termiz burilish chorahha</span></td>
@@ -316,7 +327,7 @@ margin-top:5px}
 <td data-l="Мижоз">Begzod Boyqulov Eshqul ogli</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998940960202"><span class="pm">+99894***0202</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998994516116"><span class="pm">+99899***6116</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="nurafshon shaxar  Nurafshon city 60-dom 85-xonadon">nurafshon shaxar  Nurafshon city 60-dom 85-xonadon</span></td>
@@ -330,7 +341,7 @@ margin-top:5px}
 <td data-l="Мижоз">Гуля</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905741585"><span class="pm">+99890***1585</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Feruza Ikromaliyeva 151 151</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Нукус</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Нукус шахри телеграфная 8 uy">Нукус шахри телеграфная 8 uy</span></td>
@@ -344,7 +355,7 @@ margin-top:5px}
 <td data-l="Мижоз">Муратов шухрат</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998901988370"><span class="pm">+99890***8370</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998882291374"><span class="pm">+99888***1374</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="nurabod t nurbuloq sh sentrga bozorchaga">nurabod t nurbuloq sh sentrga bozorchaga</span></td>
@@ -358,7 +369,7 @@ margin-top:5px}
 <td data-l="Мижоз">абдуллазиз</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905845822"><span class="pm">+99890***5822</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Fargona v Margilon sh Gastranom 1-maktab">Fargona v Margilon sh Gastranom 1-maktab</span></td>
@@ -372,7 +383,7 @@ margin-top:5px}
 <td data-l="Мижоз">Mahmuda</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998614662"><span class="pm">+99899***4662</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="zanghota tumani ezoz koch a2 tor kocha 2 uy">zanghota tumani ezoz koch a2 tor kocha 2 uy</span></td>
@@ -386,7 +397,7 @@ margin-top:5px}
 <td data-l="Мижоз">Odilbek Madaminov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998944150054"><span class="pm">+99894***0054</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent shaxar yashnabot tumani asalobod mfy xusnobot 5-tor 25-uy">Toshkent shaxar yashnabot tumani asalobod mfy xusnobot 5-tor 25-uy</span></td>
@@ -400,7 +411,7 @@ margin-top:5px}
 <td data-l="Мижоз">jahongir tursunov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996973838"><span class="pm">+99899***3838</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="kosonsoy tumani qoqimboy 3uy  +998943013838">kosonsoy tumani qoqimboy 3uy  +998943013838</span></td>
@@ -414,7 +425,7 @@ margin-top:5px}
 <td data-l="Мижоз">Алишер bozorboyev</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996927211"><span class="pm">+99899***7211</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998777057211"><span class="pm">+99877***7211</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yangi qorgon tumani sentrga">yangi qorgon tumani sentrga</span></td>
@@ -428,7 +439,7 @@ margin-top:5px}
 <td data-l="Мижоз">Bobur  Yoldashev</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998886888873"><span class="pm">+99888***8873</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Andijon shaxar Marxamat tumani qorabogish mfy 33-uy">Andijon shaxar Marxamat tumani qorabogish mfy 33-uy</span></td>
@@ -442,7 +453,7 @@ margin-top:5px}
 <td data-l="Мижоз">Komilova Marziyaxon MUzaffarjon qizi  ( 14.09.2005</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996848848"><span class="pm">+99899***8848</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Muzaffar Abdumannobov 152 152</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Andijon Viloyati qurgontepa tumani qorasuv shahar markazi">Andijon Viloyati qurgontepa tumani qorasuv shahar markazi</span></td>
@@ -456,7 +467,7 @@ margin-top:5px}
 <td data-l="Мижоз">Гулямова Мухайё ig</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998900980277"><span class="pm">+99890***0277</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998909830077"><span class="pm">+99890***0077</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="shoyhontohur tumani qoratosh 2a dom">shoyhontohur tumani qoratosh 2a dom</span></td>
@@ -470,7 +481,7 @@ margin-top:5px}
 <td data-l="Мижоз">Klara opa</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998992551147"><span class="pm">+99899***1147</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 700 000</td>
 <td data-l="Регион">Нукус</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Asambegimov kochasi 123 uy">Asambegimov kochasi 123 uy</span></td>
@@ -484,7 +495,7 @@ margin-top:5px}
 <td data-l="Мижоз">Jasur Mirzaqulov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996763101"><span class="pm">+99899***3101</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Сурхондарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Termiz shaxar  farovon massiv  lokatsiya +998919063101">Termiz shaxar  farovon massiv  lokatsiya +998919063101</span></td>
@@ -498,7 +509,7 @@ margin-top:5px}
 <td data-l="Мижоз">Kadirova Gulbahor</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998884597555"><span class="pm">+99888***7555</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Хоразм</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="urganch shaxar mashal maxallasi iskandar dost 100-uy">urganch shaxar mashal maxallasi iskandar dost 100-uy</span></td>
@@ -512,7 +523,7 @@ margin-top:5px}
 <td data-l="Мижоз">Boymatova Nazokat Normurodovna</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998908214456"><span class="pm">+99890***4456</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998938872767"><span class="pm">+99893***2767</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Guzor tumani qoshtepa qishlogi 31-uy">Guzor tumani qoshtepa qishlogi 31-uy</span></td>
@@ -526,7 +537,7 @@ margin-top:5px}
 <td data-l="Мижоз">шухрат</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933593878"><span class="pm">+99893***3878</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Sergili tumani xonabot lakatsiya tashaydi">Sergili tumani xonabot lakatsiya tashaydi</span></td>
@@ -540,7 +551,7 @@ margin-top:5px}
 <td data-l="Мижоз">Motabar 1971-08-14</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998901187766"><span class="pm">+99890***7766</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Omad Nuriddinov 149 149</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="olmazor tumani oxun boboyev mahalla uzunbog kocha 61uy">olmazor tumani oxun boboyev mahalla uzunbog kocha 61uy</span></td>
@@ -554,7 +565,7 @@ margin-top:5px}
 <td data-l="Мижоз">Bayjanov Gayrat</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998942691188"><span class="pm">+99894***1188</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Abdulloh O&#x27;tkirovich 266 266</td>
-<td data-l="Продукт" class="prod">Zextra sure - 4 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 4 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 100 000</td>
 <td data-l="Регион">Хоразм</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Urganch shahar  Televishkaga oldiga +998702238008">Urganch shahar  Televishkaga oldiga +998702238008</span></td>
@@ -568,7 +579,7 @@ margin-top:5px}
 <td data-l="Мижоз">Нодира zirayeva</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998973777887"><span class="pm">+99897***7887</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yashnabot  tumani botkena kocha 6  +998332220016">yashnabot  tumani botkena kocha 6  +998332220016</span></td>
@@ -582,7 +593,7 @@ margin-top:5px}
 <td data-l="Мижоз">Shaxlo Beyinbayeva</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998931248900"><span class="pm">+99893***8900</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Нукус</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Tortkol tumani lokatsiya tashidi">Tortkol tumani lokatsiya tashidi</span></td>
@@ -596,7 +607,7 @@ margin-top:5px}
 <td data-l="Мижоз">Азизбек</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998903180802"><span class="pm">+99890***0802</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="qoyliq bozori strayitelni bozor">qoyliq bozori strayitelni bozor</span></td>
@@ -610,7 +621,7 @@ margin-top:5px}
 <td data-l="Мижоз">Ibodullayev Fayozbek</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998883695525"><span class="pm">+99888***5525</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Навоий</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Navoiy shahar Navoiy kocha kimyogar mahalla 49 A">Navoiy shahar Navoiy kocha kimyogar mahalla 49 A</span></td>
@@ -624,7 +635,7 @@ margin-top:5px}
 <td data-l="Мижоз">Амина</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998997507775"><span class="pm">+99899***7775</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta<br>Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 1 ta</span><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 700 000</td>
 <td data-l="Регион">Нукус</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="tunelning yoniga  +998905907775">tunelning yoniga  +998905907775</span></td>
@@ -638,7 +649,7 @@ margin-top:5px}
 <td data-l="Мижоз">Махлиё</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998900053755"><span class="pm">+99890***3755</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 3 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 3 ta</span></td>
 <td data-l="Сумма" class="nowrap">2 400 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshloq rayon Qirqariq qishlogi  159-uy">Toshloq rayon Qirqariq qishlogi  159-uy</span></td>
@@ -652,7 +663,7 @@ margin-top:5px}
 <td data-l="Мижоз">fayzullayev saidjamol</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998935047676"><span class="pm">+99893***7676</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998335047676"><span class="pm">+99833***7676</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Сурхондарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="termiz shahar bogdor mahalla islom karimov kocha 149dom 25uy">termiz shahar bogdor mahalla islom karimov kocha 149dom 25uy</span></td>
@@ -666,7 +677,7 @@ margin-top:5px}
 <td data-l="Мижоз">ANvar AKa</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998997264999"><span class="pm">+99899***4999</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="bektemir tumani prkent trakt kochasi 32 chi A uy">bektemir tumani prkent trakt kochasi 32 chi A uy</span></td>
@@ -680,7 +691,7 @@ margin-top:5px}
 <td data-l="Мижоз">Axtam Axmedov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998996644004"><span class="pm">+99899***4004</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="gijduvon tumani Nodira maxalla">gijduvon tumani Nodira maxalla</span></td>
@@ -694,7 +705,7 @@ margin-top:5px}
 <td data-l="Мижоз">Без имени</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998979269711"><span class="pm">+99897***9711</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="qavchinom mahallasi yetkazilishidean 1 soat oldin qilinsa lakatsiya tashb berarkan osha mahallada qanaqadur magazin bor nevaram ishlidi dedi">qavchinom mahallasi yetkazilishidean 1 soat oldin qilinsa lakatsiya tashb berarkan osha mahallada qanaqadur magazin bor nevaram ishlidi dedi</span></td>
@@ -708,7 +719,7 @@ margin-top:5px}
 <td data-l="Мижоз">Shuhratov Shahzod Shavkatovich</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998771056005"><span class="pm">+99877***6005</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998955269595"><span class="pm">+99895***9595</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Asliddin Karimberdiyev 148 148</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Shofirkon tumani">Shofirkon tumani</span></td>
@@ -722,7 +733,7 @@ margin-top:5px}
 <td data-l="Мижоз">Abdurashid</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998992453071"><span class="pm">+99899***3071</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998997913705"><span class="pm">+99899***3705</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yuqori chirchiq guliston jome hojaligi kohinur kochasi 23 xonadan">yuqori chirchiq guliston jome hojaligi kohinur kochasi 23 xonadan</span></td>
@@ -736,7 +747,7 @@ margin-top:5px}
 <td data-l="Мижоз">Sirojiddin Dovudov Boʻgʻim ogʻriqlari</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998943415445"><span class="pm">+99894***5445</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998955752905"><span class="pm">+99895***2905</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Жиззах</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="arnasoy tumani boston mahalla 20uy">arnasoy tumani boston mahalla 20uy</span></td>
@@ -750,7 +761,7 @@ margin-top:5px}
 <td data-l="Мижоз">Нозима  eshonqulova</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998904401551"><span class="pm">+99890***1551</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998993472500"><span class="pm">+99899***2500</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="shahrisabz tumani sentrga">shahrisabz tumani sentrga</span></td>
@@ -764,7 +775,7 @@ margin-top:5px}
 <td data-l="Мижоз">Maloxat</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998956368863"><span class="pm">+99895***8863</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Olmazor tuman Qorasaroy 222">Olmazor tuman Qorasaroy 222</span></td>
@@ -778,7 +789,7 @@ margin-top:5px}
 <td data-l="Мижоз">Karimaxon</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998999309111"><span class="pm">+99899***9111</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="ORT. kuyganyor mfy Navbahor kochasi 173 uy">ORT. kuyganyor mfy Navbahor kochasi 173 uy</span></td>
@@ -792,7 +803,7 @@ margin-top:5px}
 <td data-l="Мижоз">Dildora</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916620019"><span class="pm">+99891***0019</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Kist al hindi Sinolife - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 800 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yashnabod tumani Maxtumquli ko&#x27;chasi 87 dom 24 xonadon a blok 1 chi padez">Yashnabod tumani Maxtumquli ko&#x27;chasi 87 dom 24 xonadon a blok 1 chi padez</span></td>
@@ -806,7 +817,7 @@ margin-top:5px}
 <td data-l="Мижоз">Muxammadiyeva Mashxura</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998945376523"><span class="pm">+99894***6523</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998944412422"><span class="pm">+99894***2422</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Payariq tumani Chelak shaxriga  or chelak parki">Payariq tumani Chelak shaxriga  or chelak parki</span></td>
@@ -820,7 +831,7 @@ margin-top:5px}
 <td data-l="Мижоз">Шоиста</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998991966233"><span class="pm">+99899***6233</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Zextra sure - 4 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Kist al hindi Sinolife - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 4 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Kist al hindi Sinolife - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Samarqand shahar Jarqishloq mahallasi totuvlik 159">Samarqand shahar Jarqishloq mahallasi totuvlik 159</span></td>
@@ -834,7 +845,7 @@ margin-top:5px}
 <td data-l="Мижоз">Umarov Asqar</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998987768006"><span class="pm">+99898***8006</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qarshi shaxar sentriga lokatsiya tashab beradi">Qarshi shaxar sentriga lokatsiya tashab beradi</span></td>
@@ -848,7 +859,7 @@ margin-top:5px}
 <td data-l="Мижоз">Ziyodulla Mamatqulov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998887901097"><span class="pm">+99888***1097</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998930654955"><span class="pm">+99893***4955</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Жиззах</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Jizzax shaxar  Uch qahramon sentriga">Jizzax shaxar  Uch qahramon sentriga</span></td>
@@ -862,7 +873,7 @@ margin-top:5px}
 <td data-l="Мижоз">Bekmirzayev Zuhriddin</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933944992"><span class="pm">+99893***4992</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998933948694"><span class="pm">+99893***8694</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qoyliq panaleniy arentr">Qoyliq panaleniy arentr</span></td>
@@ -876,7 +887,7 @@ margin-top:5px}
 <td data-l="Мижоз">Soyibnazarova Manzura Boriyevna</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998970077300"><span class="pm">+99897***7300</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Zohirbek Sobirovich 208 208</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent tumani  Yangi darxon MFY Dormon kochasi 52 uy  ORT : Vayenni chast">Toshkent tumani  Yangi darxon MFY Dormon kochasi 52 uy  ORT : Vayenni chast</span></td>
@@ -890,7 +901,7 @@ margin-top:5px}
 <td data-l="Мижоз">Гулбара</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998994010678"><span class="pm">+99899***0678</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998998690983"><span class="pm">+99899***0983</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yuqori chirchiq tumani qizil yulduz kochasi 173uy">yuqori chirchiq tumani qizil yulduz kochasi 173uy</span></td>
@@ -904,7 +915,7 @@ margin-top:5px}
 <td data-l="Мижоз">Nurullo 39 yosh</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998509980801"><span class="pm">+99850***0801</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="andijon shahar 3 mikrorayon Maftunkor MFY Pistamazor Masjidi oldiga +998948973033">andijon shahar 3 mikrorayon Maftunkor MFY Pistamazor Masjidi oldiga +998948973033</span></td>
@@ -918,7 +929,7 @@ margin-top:5px}
 <td data-l="Мижоз">Sobirova Malika</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998507061018"><span class="pm">+99850***1018</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Kist al hindi Sinolife - 1 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Sergili tuman zarunar maxalla 76 grup 28 +998943821018">Sergili tuman zarunar maxalla 76 grup 28 +998943821018</span></td>
@@ -932,7 +943,7 @@ margin-top:5px}
 <td data-l="Мижоз">Гулноз</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998973857825"><span class="pm">+99897***7825</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998970932300"><span class="pm">+99897***2300</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">900 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="mirzo ulugbek tumani ahmad yugnaki mahalla 44dom 35kvartera">mirzo ulugbek tumani ahmad yugnaki mahalla 44dom 35kvartera</span></td>
@@ -946,7 +957,7 @@ margin-top:5px}
 <td data-l="Мижоз">Qalandarova Ойниса</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998941534477"><span class="pm">+99894***4477</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Навоий</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="zarafshon shahri 2-mikrorayon 5-dom 28-kvartira  +998886337744">zarafshon shahri 2-mikrorayon 5-dom 28-kvartira  +998886337744</span></td>
@@ -960,7 +971,7 @@ margin-top:5px}
 <td data-l="Мижоз">Аликулов jumanazar</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998956696567"><span class="pm">+99895***6567</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998956636567"><span class="pm">+99895***6567</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Сурхондарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="qiziriq tumani sentirga">qiziriq tumani sentirga</span></td>
@@ -974,7 +985,7 @@ margin-top:5px}
 <td data-l="Мижоз">Фурсат</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998981700405"><span class="pm">+99898***0405</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="yashnabot tumani lakatsiya bor">yashnabot tumani lakatsiya bor</span></td>
@@ -988,7 +999,7 @@ margin-top:5px}
 <td data-l="Мижоз">extiyor</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998944421919"><span class="pm">+99894***1919</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="toraqorgon tumani orta mfy +998944147010">toraqorgon tumani orta mfy +998944147010</span></td>
@@ -1002,7 +1013,7 @@ margin-top:5px}
 <td data-l="Мижоз">Ixtiyor</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998775359118"><span class="pm">+99877***9118</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 3 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 3 ta</span></td>
 <td data-l="Сумма" class="nowrap">2 400 000</td>
 <td data-l="Регион">Навоий</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="navbahor tumani karvon mahalla fidoyi 3uy">navbahor tumani karvon mahalla fidoyi 3uy</span></td>
@@ -1016,7 +1027,7 @@ margin-top:5px}
 <td data-l="Мижоз">Muhtarova marguba</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998905540901"><span class="pm">+99890***0901</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998994773250"><span class="pm">+99899***3250</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="namangan shahar kalxoz kocha  186uy">namangan shahar kalxoz kocha  186uy</span></td>
@@ -1030,7 +1041,7 @@ margin-top:5px}
 <td data-l="Мижоз">Bayjanov Gayrat</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998942691188"><span class="pm">+99894***1188</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Хоразм</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="xorazm urganch telebashnya arentr +998702238008 Rashid Aka">xorazm urganch telebashnya arentr +998702238008 Rashid Aka</span></td>
@@ -1044,7 +1055,7 @@ margin-top:5px}
 <td data-l="Мижоз">Rahmedova Shahnoza</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998958524888"><span class="pm">+99895***4888</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta<br>Sinolife omega kapsula 60 - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent shahar shiroq 104 zilol tekstil arentr  Soat 1dan 3 gacha +998994058320">Toshkent shahar shiroq 104 zilol tekstil arentr  Soat 1dan 3 gacha +998994058320</span></td>
@@ -1058,7 +1069,7 @@ margin-top:5px}
 <td data-l="Мижоз">Azizbek</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998908360001"><span class="pm">+99890***0001</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998931250052"><span class="pm">+99893***0052</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Fargona shaxar  yagingiyer 85-uy">Fargona shaxar  yagingiyer 85-uy</span></td>
@@ -1072,7 +1083,7 @@ margin-top:5px}
 <td data-l="Мижоз">Жамшид</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998930610248"><span class="pm">+99893***0248</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Карши шахар  kochkak mahalla">Карши шахар  kochkak mahalla</span></td>
@@ -1086,7 +1097,7 @@ margin-top:5px}
 <td data-l="Мижоз">Farxod Nasimov</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998882825555"><span class="pm">+99888***5555</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Suhrob Hakimov 207 207</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="G&#x27;iduvon tuman Xamadoniy ko&#x27;chasi 1 uy +998331215555   +998882825555">G&#x27;iduvon tuman Xamadoniy ko&#x27;chasi 1 uy +998331215555   +998882825555</span></td>
@@ -1100,7 +1111,7 @@ margin-top:5px}
 <td data-l="Мижоз">Muhamadiyeva Gulnoza</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998771430560"><span class="pm">+99877***0560</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ozoda Yoldosheva 152 152</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="samarqand wahar  Super">samarqand wahar  Super</span></td>
@@ -1114,7 +1125,7 @@ margin-top:5px}
 <td data-l="Мижоз">Jasur Ergashev</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998936663091"><span class="pm">+99893***3091</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Zextra sure - 1 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">800 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Samarqand Viloyati Qo&#x27;shrobod sohibkor mfy 104">Samarqand Viloyati Qo&#x27;shrobod sohibkor mfy 104</span></td>
@@ -1128,7 +1139,7 @@ margin-top:5px}
 <td data-l="Мижоз">Гулнора  Исакова</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998979399"><span class="pm">+99899***9399</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yashnabot tumani Aviyasozlar 4 1/16dom">Yashnabot tumani Aviyasozlar 4 1/16dom</span></td>
@@ -1142,7 +1153,7 @@ margin-top:5px}
 <td data-l="Мижоз">Муродова Умрия</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998914056501"><span class="pm">+99891***6501</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Бухоро.  Шахар  karvon bozori">Бухоро.  Шахар  karvon bozori</span></td>
@@ -1156,7 +1167,7 @@ margin-top:5px}
 <td data-l="Мижоз">Xamamova Nargiza</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998975559529"><span class="pm">+99897***9529</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="fargona shaxar  kirgiliga or go&#x27;rgaz kocha  +998902743909    Onalari  +998917512024      Ugillari">fargona shaxar  kirgiliga or go&#x27;rgaz kocha  +998902743909    Onalari  +998917512024      Ugillari</span></td>
@@ -1170,7 +1181,7 @@ margin-top:5px}
 <td data-l="Мижоз">gulchehra</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998991782775"><span class="pm">+99899***2775</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998994559780"><span class="pm">+99899***9780</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="uchtepa tumani beshqayragoch kocha 159 uy">uchtepa tumani beshqayragoch kocha 159 uy</span></td>
@@ -1184,7 +1195,7 @@ margin-top:5px}
 <td data-l="Мижоз">Azamjon</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998973389695"><span class="pm">+99897***9695</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="973389695"><span class="pm">973389695</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="paxtabot tumani uchqurgon mahalla 30uy +998973399695">paxtabot tumani uchqurgon mahalla 30uy +998973399695</span></td>
@@ -1198,7 +1209,7 @@ margin-top:5px}
 <td data-l="Мижоз">Nuriddinova Ruslixon</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998972173077"><span class="pm">+99897***3077</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Javohir Jorayev 150 150</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Наманган</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Namangan shaxar Or Saydana klinikasi">Namangan shaxar Or Saydana klinikasi</span></td>
@@ -1212,7 +1223,7 @@ margin-top:5px}
 <td data-l="Мижоз">MAulyanov Ilhom</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998998027285"><span class="pm">+99899***7285</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ibrohim Yorqinovich 153 153</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent shahar  yashnabod sorok let tel orqali aloqa">Toshkent shahar  yashnabod sorok let tel orqali aloqa</span></td>
@@ -1226,7 +1237,7 @@ margin-top:5px}
 <td data-l="Мижоз">Nargiza</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998903244316"><span class="pm">+99890***4316</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="mirzo ulugbek tumani maksim gorki metroni yoniga">mirzo ulugbek tumani maksim gorki metroni yoniga</span></td>
@@ -1240,7 +1251,7 @@ margin-top:5px}
 <td data-l="Мижоз">Муборак</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998944497755"><span class="pm">+99894***7755</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998933527777"><span class="pm">+99893***7777</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sedana Sinolife - 1 ta<br>Zextra sure - 4 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Самарқанд</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="kattaqurgon tumani sentrga">kattaqurgon tumani sentrga</span></td>
@@ -1254,7 +1265,7 @@ margin-top:5px}
 <td data-l="Мижоз">shodiyev toshpulot</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998933831853"><span class="pm">+99893***1853</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="buxoro shahar toqimachilik bozori oldiga">buxoro shahar toqimachilik bozori oldiga</span></td>
@@ -1268,7 +1279,7 @@ margin-top:5px}
 <td data-l="Мижоз">Boxodir</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990766899"><span class="pm">+99899***6899</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Marjona Xayrullayeva 154 154</td>
-<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Zextra sure - 2 ta</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Навоий</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="xatirchi tumani sentrga">xatirchi tumani sentrga</span></td>
