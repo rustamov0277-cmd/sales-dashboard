@@ -392,7 +392,6 @@ def main():
         print(f"{rop}: {len(orders)} ta buyurtma -> {fn}")
 
     (OUT_DIR / "index.html").write_text(build_index(by_rop, updated_at), encoding="utf-8")
-    (OUT_DIR / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
     (OUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
     print(f"\nJami {len(by_rop)} ta ROP dashboard yaratildi: {OUT_DIR}")
 
