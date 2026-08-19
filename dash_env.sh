@@ -1,6 +1,0 @@
-export SA_DASHBOARD_SALT="sinolife-2026-maxfiy-XyZ9kL3"
-export SA_STATE_DIR="/root/sinolifesalesadmin_v2/state"
-export SA_DASHBOARD_DIR="/root/sales_dashboard/docs"
-export SA_DASHBOARD_SALT="sinolife-2026-maxfiy-XyZ9kL3"
-export SA_STATE_DIR="/root/sinolifesalesadmin_v2/state"
-export SA_DASHBOARD_DIR="/root/sales_dashboard/docs"
