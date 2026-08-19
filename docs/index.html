@@ -93,13 +93,13 @@ margin-top:5px}
 </style>
 </head><body>
 <h1>Барча буюртмалар</h1>
-<div class="sub">Янгиланди: 19.08.2026 15:46 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 19.08.2026 15:52 (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">779</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">26</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">14</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">666</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">73</div><div class="l">❌ Тасдиқланмади</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">780</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">25</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">14</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">668</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">73</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
-<select id="rop"><option value="">Барча РОП</option><option value="Asliddin">Asliddin (83)</option><option value="Azizbek">Azizbek (82)</option><option value="Baza">Baza (50)</option><option value="Charos">Charos (33)</option><option value="Gulzora">Gulzora (54)</option><option value="Hayot">Hayot (3)</option><option value="Kompaniya">Kompaniya (11)</option><option value="Lola">Lola (138)</option><option value="Maftuna">Maftuna (38)</option><option value="Marjona">Marjona (25)</option><option value="NEW">NEW (3)</option><option value="Saidaziz">Saidaziz (81)</option><option value="Sevinch">Sevinch (95)</option><option value="Sevinchxon">Sevinchxon (59)</option><option value="Shohjaxon">Shohjaxon (6)</option><option value="Номаълум">Номаълум (18)</option></select>
+<select id="rop"><option value="">Барча РОП</option><option value="Asliddin">Asliddin (83)</option><option value="Azizbek">Azizbek (82)</option><option value="Baza">Baza (50)</option><option value="Charos">Charos (33)</option><option value="Gulzora">Gulzora (55)</option><option value="Hayot">Hayot (3)</option><option value="Kompaniya">Kompaniya (11)</option><option value="Lola">Lola (138)</option><option value="Maftuna">Maftuna (38)</option><option value="Marjona">Marjona (25)</option><option value="NEW">NEW (3)</option><option value="Saidaziz">Saidaziz (81)</option><option value="Sevinch">Sevinch (95)</option><option value="Sevinchxon">Sevinchxon (59)</option><option value="Shohjaxon">Shohjaxon (6)</option><option value="Номаълум">Номаълум (18)</option></select>
 <select id="st"><option value="">Барча статус</option><option value="confirm_new">🕔 Тасдиқлаш</option><option value="no_answer">🟡 Кутармади (нд)</option><option value="confirmed">✅ Тасдиқланди</option><option value="rejected">❌ Тасдиқланмади</option></select>
 <input type="date" id="d1" title="Дан">
 <input type="date" id="d2" title="Гача">
@@ -112,7 +112,21 @@ margin-top:5px}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998977431222" data-rop="Sevinchxon" data-summa="3 600 000">
+<tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998942248487 942248487" data-rop="Gulzora" data-summa="1 800 000">
+<td data-l="РОП" class="nowrap"><b>Gulzora</b></td>
+<td data-l="№" class="nowrap">004</td>
+<td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:52</div></td>
+<td data-l="Id сделки" class="nowrap">875258</td>
+<td data-l="Мижоз">Mijoz</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998942248487"><span class="pm">+99894***8487</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="942248487"><span class="pm">942248487</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Xushvaqtova 120 120</td>
+<td data-l="Продукт" class="prod">Kist al hindi Sinolife - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
+<td data-l="Сумма" class="nowrap">1 800 000</td>
+<td data-l="Регион">Самарқанд</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Samarqand viloyati samarqand shaxar Mehribon mahallasi">Samarqand viloyati samarqand shaxar Mehribon mahallasi</span></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Источник">sinolifeuz</td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998977431222" data-rop="Sevinchxon" data-summa="3 600 000">
 <td data-l="РОП" class="nowrap"><b>Sevinchxon</b></td>
 <td data-l="№" class="nowrap">023</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:44</div></td>
@@ -124,7 +138,7 @@ margin-top:5px}
 <td data-l="Сумма" class="nowrap">3 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Bektemir t Vodnik mavzesi rohat ko&#x27;chasi 13">Bektemir t Vodnik mavzesi rohat ko&#x27;chasi 13</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Входящий</td>
 </tr><tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998941948820" data-rop="Azizbek" data-summa="1 550 000">
 <td data-l="РОП" class="nowrap"><b>Azizbek</b></td>
@@ -168,7 +182,7 @@ margin-top:5px}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qashaqadaryo viloyati Qarshi shaxar Oydin MFY Alisher Navoiy 72 drop1 30-xonadon">Qashaqadaryo viloyati Qarshi shaxar Oydin MFY Alisher Navoiy 72 drop1 30-xonadon</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998916462272 916462272" data-rop="Baza" data-summa="1 500 000">
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998916462272 916462272" data-rop="Baza" data-summa="1 500 000">
 <td data-l="РОП" class="nowrap"><b>Baza</b></td>
 <td data-l="№" class="nowrap">006</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:29</div></td>
@@ -179,8 +193,8 @@ margin-top:5px}
 <td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
 <td data-l="Сумма" class="nowrap">1 500 000</td>
 <td data-l="Регион">Бухоро</td>
-<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Fisku tumani  Shodlik kucha 86 uy">Fisku tumani  Shodlik kucha 86 uy</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Pishku tumani  Shodlik kucha 86 uy +998335557171">Pishku tumani  Shodlik kucha 86 uy +998335557171</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998887742722" data-rop="Sevinch" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Sevinch</b></td>
