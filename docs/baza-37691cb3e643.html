@@ -75,9 +75,9 @@ padding:3px 7px;font-size:12px;line-height:1.4;color:var(--muted)}
 </style>
 </head><body>
 <h1>Baza — буюртмалар</h1>
-<div class="sub">Янгиланди: 19.08.2026 15:14 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 19.08.2026 15:43 (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n">48</div><div class="l">Жами</div></div><div class="stat"><div class="n">0</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n">44</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n">3</div><div class="l">❌ Тасдиқланмади</div></div></div>
+<div class="stats"><div class="stat"><div class="n">50</div><div class="l">Жами</div></div><div class="stat"><div class="n">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n">45</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n">3</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -91,7 +91,31 @@ padding:3px 7px;font-size:12px;line-height:1.4;color:var(--muted)}
 <th>№</th><th>Сана</th><th>Id сделки</th><th>Продукт</th><th>Сумма</th>
 <th>Регион</th><th>Адрес</th><th>Мижоз</th><th>Телефон</th><th>Оператор</th><th>Статус</th>
 </tr></thead><tbody>
-<tr data-status="confirmed" data-date="2026-08-19" data-phones="+998998579170">
+<tr data-status="confirm_new" data-date="2026-08-19" data-phones="+998916462272 916462272">
+<td data-l="№" class="nowrap">006</td>
+<td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:29</div></td>
+<td data-l="Id сделки" class="nowrap">875408</td>
+<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 2 ta</td>
+<td data-l="Сумма" class="nowrap">1 500 000</td>
+<td data-l="Регион">Бухоро</td>
+<td data-l="Адрес">Fisku tumani  Shodlik kucha 86 uy</td>
+<td data-l="Мижоз">Sadirova Xolida холида</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916462272"><span class="pm">+99891***2272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="916462272"><span class="pm">916462272</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Alimova Nafisa 221 221<div class="muted">Ген лид</div></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998995574024">
+<td data-l="№" class="nowrap">005</td>
+<td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:23</div></td>
+<td data-l="Id сделки" class="nowrap">872576</td>
+<td data-l="Продукт" class="prod">Sinolife omega kapsula 60 - 1 ta<br>Sinolife collagen marine kakao - 1 ta</td>
+<td data-l="Сумма" class="nowrap">950 000</td>
+<td data-l="Регион">Тошкент ш.</td>
+<td data-l="Адрес">toshkent shahar Mirobot tumani mehrjon ko&#x27;cha 45-dom  76-xonadon  +998712918503</td>
+<td data-l="Мижоз">Zohida</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998995574024"><span class="pm">+99899***4024</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Marjona Ashrafova 172 172<div class="muted">Веб-сайт</div></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+</tr><tr data-status="confirmed" data-date="2026-08-19" data-phones="+998998579170">
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-08-19<div class="muted">15:02</div></td>
 <td data-l="Id сделки" class="nowrap">875202</td>
