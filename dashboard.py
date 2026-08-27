@@ -345,64 +345,6 @@ function openStats(){{
 
 function closeStats(){{ document.getElementById('stats-modal').classList.remove('show'); }}
 
-/* ── Fon rejimida yangilash ──────────────────────────────────────────────
-   Butun sahifani qayta yuklamaymiz (location.reload) — chunki u holda
-   qo'yilgan filtrlar, qidiruv matni va skroll holati nolga tushib ketardi.
-   Buning o'rniga faqat jadval qatorlarini almashtiramiz va filtrlarni
-   qaytadan qo'llaymiz. */
-var REFRESH_MS = 120000;
-var refreshing = false;
-
-function refreshData(){{
-  if (refreshing) return;
-  if (document.hidden) return;                       // fon tabda so'rov yubormaymiz
-  if (document.getElementById('stats-modal').classList.contains('show')) return; // modal ochiq bo'lsa tegmaymiz
-  refreshing = true;
-
-  var url = location.pathname + '?_=' + Date.now();  // kesh chetlab o'tiladi
-  fetch(url, {{ cache: 'no-store' }})
-    .then(function(r){{ if(!r.ok) throw new Error(r.status); return r.text(); }})
-    .then(function(html){{
-      var doc = new DOMParser().parseFromString(html, 'text/html');
-
-      var newBody = doc.querySelector('tbody');
-      var curBody = document.querySelector('tbody');
-      if (!newBody || !curBody) return;
-
-      // Ochilgan telefon raqamlarini eslab qolamiz (yangilashdan keyin tiklash uchun)
-      var shown = [];
-      document.querySelectorAll('.ph .eye[data-shown="1"]').forEach(function(b){{
-        shown.push(b.closest('.ph').dataset.full);
-      }});
-
-      var y = window.scrollY;
-      curBody.innerHTML = newBody.innerHTML;
-
-      // ROP filtri ro'yxatini ham yangilaymiz (yangi ROP qo'shilgan bo'lishi mumkin)
-      var newRop = doc.getElementById('rop'), curRop = document.getElementById('rop');
-      if (newRop && curRop && newRop.innerHTML !== curRop.innerHTML) {{
-        var keep = curRop.value;
-        curRop.innerHTML = newRop.innerHTML;
-        curRop.value = keep;                          // tanlangan ROP saqlanadi
-      }}
-
-      // "Yangilandi: ..." vaqtini almashtiramiz
-      var newSub = doc.querySelector('.sub'), curSub = document.querySelector('.sub');
-      if (newSub && curSub) curSub.innerHTML = newSub.innerHTML;
-
-      // Ochiq turgan telefonlarni qaytaramiz
-      shown.forEach(function(full){{
-        var w = document.querySelector('.ph[data-full="'+full+'"]');
-        if (w) togglePhone(w.querySelector('.eye'));
-      }});
-
-      applyFilters();                                 // filtrlar qaytadan qo'llanadi
-      window.scrollTo(0, y);                          // skroll joyida qoladi
-    }})
-    .catch(function(e){{ console.warn('yangilash xatosi:', e); }})
-    .finally(function(){{ refreshing = false; }});
-}}
-
 document.addEventListener('DOMContentLoaded',function(){{
   ['q','st','d1','d2','rop'].forEach(function(id){{
     var el=document.getElementById(id);
@@ -414,11 +356,7 @@ document.addEventListener('DOMContentLoaded',function(){{
   if(m) m.addEventListener('click',function(e){{ if(e.target===m) closeStats(); }});
   document.addEventListener('keydown',function(e){{ if(e.key==='Escape') closeStats(); }});
   applyFilters();
-  setInterval(refreshData, REFRESH_MS);
-  // Tabga qaytilganda darhol yangilaymiz
-  document.addEventListener('visibilitychange', function(){{
-    if (!document.hidden) refreshData();
-  }});
+  setTimeout(function(){{location.reload()}}, 120000);
 }});
 """
 
@@ -512,7 +450,7 @@ family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>{CSS}</style>
 </head><body>
 <h1>{esc(title)}</h1>
-<div class="sub">Янгиланди: {updated_at} (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: {updated_at} (ҳар 2 дақиқада автомат янгиланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
 <div class="stats">{build_stats(orders)}</div>
 <div class="controls">
