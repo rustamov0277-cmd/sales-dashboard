@@ -104,9 +104,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Gulzora — буюртмалар</h1>
-<div class="sub">Янгиланди: 27.08.2026 14:50 (ҳар 2 дақиқада автомат янгиланади) ·
+<div class="sub">Янгиланди: 27.08.2026 14:54 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">100</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">81</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">18</div><div class="l">❌ Тасдиқланмади</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">101</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">2</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-no_answer">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-confirmed">81</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-rejected">18</div><div class="l">❌ Тасдиқланмади</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -123,7 +123,21 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="rejected" data-date="2026-08-27" data-phones="+998772113688" data-rop="Gulzora" data-summa="0">
+<tr data-status="confirm_new" data-date="2026-08-27" data-phones="+998934178709" data-rop="Gulzora" data-summa="1 600 000">
+
+<td data-l="№" class="nowrap">005</td>
+<td data-l="Сана" class="nowrap">2026-08-27<div class="muted">14:52</div></td>
+<td data-l="Id сделки" class="nowrap">910746</td>
+<td data-l="Мижоз">Озода</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998934178709"><span class="pm">+99893***8709</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Dilshoda Quldosheva 122 122</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 2 ta</span></td>
+<td data-l="Сумма" class="nowrap">1 600 000</td>
+<td data-l="Регион">Сирдарё</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="hovoz tumani buston mahallasi buston kuchasi 1 uy">hovoz tumani buston mahallasi buston kuchasi 1 uy</span></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="rejected" data-date="2026-08-27" data-phones="+998772113688" data-rop="Gulzora" data-summa="0">
 
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-08-27<div class="muted">14:35</div></td>
@@ -1652,6 +1666,64 @@ function openStats(){
 
 function closeStats(){ document.getElementById('stats-modal').classList.remove('show'); }
 
+/* ── Fon rejimida yangilash ──────────────────────────────────────────────
+   Butun sahifani qayta yuklamaymiz (location.reload) — chunki u holda
+   qo'yilgan filtrlar, qidiruv matni va skroll holati nolga tushib ketardi.
+   Buning o'rniga faqat jadval qatorlarini almashtiramiz va filtrlarni
+   qaytadan qo'llaymiz. */
+var REFRESH_MS = 120000;
+var refreshing = false;
+
+function refreshData(){
+  if (refreshing) return;
+  if (document.hidden) return;                       // fon tabda so'rov yubormaymiz
+  if (document.getElementById('stats-modal').classList.contains('show')) return; // modal ochiq bo'lsa tegmaymiz
+  refreshing = true;
+
+  var url = location.pathname + '?_=' + Date.now();  // kesh chetlab o'tiladi
+  fetch(url, { cache: 'no-store' })
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function(html){
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+
+      var newBody = doc.querySelector('tbody');
+      var curBody = document.querySelector('tbody');
+      if (!newBody || !curBody) return;
+
+      // Ochilgan telefon raqamlarini eslab qolamiz (yangilashdan keyin tiklash uchun)
+      var shown = [];
+      document.querySelectorAll('.ph .eye[data-shown="1"]').forEach(function(b){
+        shown.push(b.closest('.ph').dataset.full);
+      });
+
+      var y = window.scrollY;
+      curBody.innerHTML = newBody.innerHTML;
+
+      // ROP filtri ro'yxatini ham yangilaymiz (yangi ROP qo'shilgan bo'lishi mumkin)
+      var newRop = doc.getElementById('rop'), curRop = document.getElementById('rop');
+      if (newRop && curRop && newRop.innerHTML !== curRop.innerHTML) {
+        var keep = curRop.value;
+        curRop.innerHTML = newRop.innerHTML;
+        curRop.value = keep;                          // tanlangan ROP saqlanadi
+      }
+
+      // "Yangilandi: ..." vaqtini almashtiramiz
+      var newSub = doc.querySelector('.sub'), curSub = document.querySelector('.sub');
+      if (newSub && curSub) curSub.innerHTML = newSub.innerHTML;
+
+      // Ochiq turgan telefonlarni qaytaramiz
+      shown.forEach(function(full){
+        var w = document.querySelector('.ph[data-full="'+full+'"]');
+        if (w) togglePhone(w.querySelector('.eye'));
+      });
+
+      applyFilters();                                 // filtrlar qaytadan qo'llanadi
+      window.scrollTo(0, y);                          // skroll joyida qoladi
+    })
+    .catch(function(e){ console.warn('yangilash xatosi:', e); })
+    .finally(function(){ refreshing = false; });
+}
+
 document.addEventListener('DOMContentLoaded',function(){
   ['q','st','d1','d2','rop'].forEach(function(id){
     var el=document.getElementById(id);
@@ -1663,7 +1735,11 @@ document.addEventListener('DOMContentLoaded',function(){
   if(m) m.addEventListener('click',function(e){ if(e.target===m) closeStats(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeStats(); });
   applyFilters();
-  setTimeout(function(){location.reload()}, 120000);
+  setInterval(refreshData, REFRESH_MS);
+  // Tabga qaytilganda darhol yangilaymiz
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) refreshData();
+  });
 });
 </script>
 </body></html>
