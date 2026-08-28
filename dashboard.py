@@ -25,12 +25,15 @@ OUT_DIR = Path(os.environ.get("SA_DASHBOARD_DIR", "/root/sales_dashboard/docs"))
 # start.sh'да SA_DASHBOARD_SALT="uzun-tasodifiy-sirli-soz" қилиб қўйинг.
 SALT = os.environ.get("SA_DASHBOARD_SALT", "sinolife-default-salt")
 
-STATUS_ORDER = ["confirm_new", "no_answer", "confirmed", "rejected"]
+STATUS_ORDER = ["confirm_new", "confirmed", "no_answer", "rejected",
+                "unconfirmed_shipped"]
 STATUS_LABELS = {
-    "confirm_new": ("🕔", "Тасдиқлаш"),
-    "no_answer":   ("🟡", "Кутармади (нд)"),
-    "confirmed":   ("✅", "Тасдиқланди"),
-    "rejected":    ("❌", "Тасдиқланмади"),
+    "confirm_new":         ("🕔", "Тасдиқлаш"),
+    "confirmed":           ("✅", "Тасдиқланди"),
+    "no_answer":           ("🟡", "Кутармади (нд)"),
+    "rejected":            ("❌", "Тасдиқланмади"),
+    # Тасдиқланмаган ҳолда почтага чиқарилган (Тастиклаш анализ = Недозвон)
+    "unconfirmed_shipped": ("🟣", "Тасдиқланмай чиқди"),
 }
 
 
@@ -185,6 +188,7 @@ white-space:nowrap;font-weight:600;border:1px solid transparent}
 .s-no_answer{background:#fff0d8;color:#8a5300;border-color:#f0d7ab}
 .s-confirmed{background:#dcf7e6;color:#0d6b33;border-color:#a9e6c1}
 .s-rejected{background:#ffe3e5;color:#a41722;border-color:#f5b9be}
+.s-unconfirmed_shipped{background:#f0e6fb;color:#5b2d8e;border-color:#d6bcf0}
 .prod{font-size:13px;white-space:nowrap;min-width:230px}
 .prod .pl{display:block;line-height:1.35;padding:1px 0}
 .prod .pl:before{content:"• ";color:var(--muted)}
@@ -308,7 +312,7 @@ function openStats(){{
   rows.forEach(function(r){{
     if(r.style.display==='none') return;
     var rop=r.dataset.rop||'—';
-    if(!byRop[rop]) byRop[rop]={{total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,summa:0}};
+    if(!byRop[rop]) byRop[rop]={{total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,unconfirmed_shipped:0,summa:0}};
     byRop[rop].total++;
     if(byRop[rop][r.dataset.status]!==undefined) byRop[rop][r.dataset.status]++;
     var sm=parseFloat((r.dataset.summa||'0').replace(/[^0-9]/g,''))||0;
@@ -316,17 +320,19 @@ function openStats(){{
   }});
 
   var names=Object.keys(byRop).sort(function(a,b){{return byRop[b].total-byRop[a].total}});
-  var g={{total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,summa:0}};
+  var g={{total:0,confirm_new:0,no_answer:0,confirmed:0,rejected:0,unconfirmed_shipped:0,summa:0}};
   var html='<table class="stat-table"><thead><tr>'+
-    '<th>РОП</th><th>Жами</th><th>✅ Тасдиқланди</th><th>🟡 нд</th>'+
-    '<th>❌ Рад</th><th>🕔 Кутилмоқда</th><th>Конверсия</th><th>Сумма</th>'+
+    '<th>РОП</th><th>Жами</th><th>✅ Тасдиқланди</th><th>🟣 Тасд-май чиқди</th>'+
+    '<th>🟡 нд</th><th>❌ Рад</th><th>🕔 Кутилмоқда</th>'+
+    '<th>Тасдиқланиш %</th><th>Сумма</th>'+
     '</tr></thead><tbody>';
 
   names.forEach(function(n){{
     var d=byRop[n];
-    ['total','confirm_new','no_answer','confirmed','rejected','summa'].forEach(function(k){{g[k]+=d[k]}});
+    ['total','confirm_new','no_answer','confirmed','rejected','unconfirmed_shipped','summa'].forEach(function(k){{g[k]+=d[k]}});
     var pct=d.total?Math.round(d.confirmed/d.total*100):0;
     html+='<tr><td><b>'+n+'</b></td><td>'+d.total+'</td><td>'+d.confirmed+'</td>'+
+      '<td>'+d.unconfirmed_shipped+'</td>'+
       '<td>'+d.no_answer+'</td><td>'+d.rejected+'</td><td>'+d.confirm_new+'</td>'+
       '<td><span class="pct">'+pct+'%</span><div class="bar"><span style="width:'+pct+'%"></span></div></td>'+
       '<td>'+d.summa.toLocaleString('ru-RU')+'</td></tr>';
@@ -334,8 +340,9 @@ function openStats(){{
 
   var gp=g.total?Math.round(g.confirmed/g.total*100):0;
   html+='</tbody><tfoot><tr style="border-top:2px solid var(--border);font-weight:800">'+
-    '<td>ЖАМИ</td><td>'+g.total+'</td><td>'+g.confirmed+'</td><td>'+g.no_answer+'</td>'+
-    '<td>'+g.rejected+'</td><td>'+g.confirm_new+'</td>'+
+    '<td>ЖАМИ</td><td>'+g.total+'</td><td>'+g.confirmed+'</td>'+
+    '<td>'+g.unconfirmed_shipped+'</td>'+
+    '<td>'+g.no_answer+'</td><td>'+g.rejected+'</td><td>'+g.confirm_new+'</td>'+
     '<td><span class="pct">'+gp+'%</span></td><td>'+g.summa.toLocaleString('ru-RU')+'</td>'+
     '</tr></tfoot></table>';
 
