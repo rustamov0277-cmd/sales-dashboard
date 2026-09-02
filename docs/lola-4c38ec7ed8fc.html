@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Lola — буюртмалар</h1>
-<div class="sub">Янгиланди: 02.09.2026 15:30 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 02.09.2026 15:40 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">347</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">2</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">290</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">52</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">2</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">348</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">2</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">291</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">1</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">52</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">2</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,19 +124,33 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-09-02" data-phones="+998945740943" data-rop="Lola" data-summa="1 600 000">
+<tr data-status="confirm_new" data-date="2026-09-02" data-phones="+998903447111" data-rop="Lola" data-summa="900 000">
+
+<td data-l="№" class="nowrap">012</td>
+<td data-l="Сана" class="nowrap">2026-09-02<div class="muted">15:36</div></td>
+<td data-l="Id сделки" class="nowrap">932240</td>
+<td data-l="Мижоз">гиес хайтов</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998903447111"><span class="pm">+99890***7111</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Nilufar Djanukolava 136 136</td>
+<td data-l="Продукт" class="prod"><span class="pl">Prox - 2 ta</span></td>
+<td data-l="Сумма" class="nowrap">900 000</td>
+<td data-l="Регион">Фарғона</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="фаргона  вилояти кукон шахар   хужакент 3 тор куча 17 уй">фаргона  вилояти кукон шахар   хужакент 3 тор куча 17 уй</span></td>
+<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Источник">Исход</td>
+</tr><tr data-status="confirmed" data-date="2026-09-02" data-phones="+998945740943 +998993090943" data-rop="Lola" data-summa="1 600 000">
 
 <td data-l="№" class="nowrap">011</td>
 <td data-l="Сана" class="nowrap">2026-09-02<div class="muted">15:14</div></td>
 <td data-l="Id сделки" class="nowrap">931940</td>
-<td data-l="Мижоз">Мижоз</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998945740943"><span class="pm">+99894***0943</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Мижоз">Barno Gaybullayeve</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998945740943"><span class="pm">+99894***0943</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998993090943"><span class="pm">+99899***0943</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Lobar Muxitdinova 141 141</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 2 ta</span></td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Жиззах</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="gallaorol tumani. madaniyat qfy. davron yuldashov 18 uy. 993090943 zuhriddin">gallaorol tumani. madaniyat qfy. davron yuldashov 18 uy. 993090943 zuhriddin</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Instagram</td>
 </tr><tr data-status="confirm_new" data-date="2026-09-02" data-phones="+998909255616" data-rop="Lola" data-summa="2 400 000">
 
