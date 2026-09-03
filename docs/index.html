@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Барча буюртмалар</h1>
-<div class="sub">Янгиланди: 03.09.2026 20:30 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 03.09.2026 20:40 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">2323</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">22</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">1961</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">7</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">309</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">24</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">2323</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">21</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">1961</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">3</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">314</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">24</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,7 +124,7 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-09-03" data-phones="+998999353877" data-rop="Azizbek" data-summa="1 000 000">
+<tr data-status="rejected" data-date="2026-09-03" data-phones="+998999353877" data-rop="Azizbek" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Azizbek</b></td>
 <td data-l="№" class="nowrap">017</td>
 <td data-l="Сана" class="nowrap">2026-09-03<div class="muted">20:05</div></td>
@@ -136,7 +136,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 000 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="oltiariq tumani qapchiqoy qishlogi 47 uy">oltiariq tumani qapchiqoy qishlogi 47 uy</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Исход</td>
 </tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998930795752 930795752" data-rop="Lola" data-summa="1 700 000">
 <td data-l="РОП" class="nowrap"><b>Lola</b></td>
@@ -530,7 +530,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Pasdarxon t Gumbaz MFY 11- maktab">Pasdarxon t Gumbaz MFY 11- maktab</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
-</tr><tr data-status="no_answer" data-date="2026-09-03" data-phones="+998990084666" data-rop="Gulzora" data-summa="1 600 000">
+</tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998990084666" data-rop="Gulzora" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Gulzora</b></td>
 <td data-l="№" class="nowrap">016</td>
 <td data-l="Сана" class="nowrap">2026-09-03<div class="muted">16:06</div></td>
@@ -542,7 +542,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yunisobod rayoni">Yunisobod rayoni</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">sinolifeuz</td>
 </tr><tr data-status="confirmed" data-date="2026-09-03" data-phones="+998773122116" data-rop="Sevinch" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Sevinch</b></td>
@@ -614,7 +614,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yunusobod tumani Farog&#x27;at 6-tor ko&#x27;chasi 16-uy">Yunusobod tumani Farog&#x27;at 6-tor ko&#x27;chasi 16-uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-09-03" data-phones="+998955557066 +998955557166" data-rop="Sevinch" data-summa="1 800 000">
+</tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998955557066 +998955557166" data-rop="Sevinch" data-summa="1 800 000">
 <td data-l="РОП" class="nowrap"><b>Sevinch</b></td>
 <td data-l="№" class="nowrap">010</td>
 <td data-l="Сана" class="nowrap">2026-09-03<div class="muted">15:50</div></td>
@@ -626,7 +626,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 800 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Buxoro viloyati Shofirkon tumani or:dehqon bozor">Buxoro viloyati Shofirkon tumani or:dehqon bozor</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-09-03" data-phones="+998904411017 +998770688860" data-rop="Lola" data-summa="2 400 000">
 <td data-l="РОП" class="nowrap"><b>Lola</b></td>
@@ -740,7 +740,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Xorazim viloyati Qushkupir tumani chamanzor MFY Alberuniy kuchasi 67-uy 44-kvartira">Xorazim viloyati Qushkupir tumani chamanzor MFY Alberuniy kuchasi 67-uy 44-kvartira</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-09-03" data-phones="+998950332704" data-rop="Gulzora" data-summa="1 000 000">
+</tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998950332704" data-rop="Gulzora" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Gulzora</b></td>
 <td data-l="№" class="nowrap">013</td>
 <td data-l="Сана" class="nowrap">2026-09-03<div class="muted">15:15</div></td>
@@ -752,7 +752,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 000 000</td>
 <td data-l="Регион">Тошкент вил.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="piskent tumani centrdan oladila">piskent tumani centrdan oladila</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-09-03" data-phones="+998935121681" data-rop="Sevinch" data-summa="1 800 000">
 <td data-l="РОП" class="nowrap"><b>Sevinch</b></td>
@@ -1258,7 +1258,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Toshkent tumani Damariq kuksaroy 3-kucha">Toshkent tumani Damariq kuksaroy 3-kucha</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-09-03" data-phones="+998942744241" data-rop="Asliddin" data-summa="1 600 000">
+</tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998942744241" data-rop="Asliddin" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Asliddin</b></td>
 <td data-l="№" class="nowrap">009</td>
 <td data-l="Сана" class="nowrap">2026-09-03<div class="muted">11:56</div></td>
@@ -1270,7 +1270,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yakkabog tumani, Or; YAshnabot mfy    Zarqirg&#x27;iz qishlogi">Yakkabog tumani, Or; YAshnabot mfy    Zarqirg&#x27;iz qishlogi</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="rejected" data-date="2026-09-03" data-phones="+998931957333" data-rop="Lola" data-summa="2 500 000">
 <td data-l="РОП" class="nowrap"><b>Lola</b></td>
