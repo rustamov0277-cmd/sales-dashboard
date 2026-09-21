@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Charos — буюртмалар</h1>
-<div class="sub">Янгиланди: 21.09.2026 09:30 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 21.09.2026 09:40 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">190</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">4</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">180</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">4</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">2</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">190</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">3</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">182</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">0</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">3</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">2</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,19 +124,33 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-09-21" data-phones="+998909553366" data-rop="Charos" data-summa="2 400 000">
+<tr data-status="confirmed" data-date="2026-09-21" data-phones="+998954050375" data-rop="Charos" data-summa="800 000">
+
+<td data-l="№" class="nowrap">002</td>
+<td data-l="Сана" class="nowrap">2026-09-21<div class="muted">09:37</div></td>
+<td data-l="Id сделки" class="nowrap">1010756</td>
+<td data-l="Мижоз">Рустамова Дилором</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998954050375"><span class="pm">+99895***0375</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Ruxsora Ashurmatova 269 269</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
+<td data-l="Сумма" class="nowrap">800 000</td>
+<td data-l="Регион">Навоий</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="karmana tumani katta masjid kocha 40uy">karmana tumani katta masjid kocha 40uy</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
+<td data-l="Источник">База клиент</td>
+</tr><tr data-status="confirmed" data-date="2026-09-21" data-phones="+998909553366 +998909202606" data-rop="Charos" data-summa="2 400 000">
 
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-09-21<div class="muted">09:24</div></td>
 <td data-l="Id сделки" class="nowrap">1016470</td>
 <td data-l="Мижоз">Мухайе Абдушукурова</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998909553366"><span class="pm">+99890***3366</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998909553366"><span class="pm">+99890***3366</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998909202606"><span class="pm">+99890***2606</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Ozoda Yuldosheva 268 268</td>
 <td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span><span class="pl">Sinolife collagen marine kakao - 1 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">2 400 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="uchtepa tumani izza mahallasi 193-uy izza tabobat markazi">uchtepa tumani izza mahallasi 193-uy izza tabobat markazi</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
 </tr><tr data-status="confirmed" data-date="2026-09-19" data-phones="+998978922166" data-rop="Charos" data-summa="1 600 000">
 
@@ -193,20 +207,6 @@ font-variant-numeric:tabular-nums}
 <td data-l="Регион">Хоразм</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Urganch sh.Sentrga">Urganch sh.Sentrga</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
-<td data-l="Источник">База клиент</td>
-</tr><tr data-status="rejected" data-date="2026-09-19" data-phones="+998954050375" data-rop="Charos" data-summa="800 000">
-
-<td data-l="№" class="nowrap">020</td>
-<td data-l="Сана" class="nowrap">2026-09-19<div class="muted">14:54</div></td>
-<td data-l="Id сделки" class="nowrap">1010756</td>
-<td data-l="Мижоз">Рустамова Дилором</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998954050375"><span class="pm">+99895***0375</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">Ruxsora Ashurmatova 269 269</td>
-<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 1 ta</span></td>
-<td data-l="Сумма" class="nowrap">800 000</td>
-<td data-l="Регион">Навоий</td>
-<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="karmana tumani katta masjid kocha 40uy">karmana tumani katta masjid kocha 40uy</span></td>
-<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">База клиент</td>
 </tr><tr data-status="confirmed" data-date="2026-09-19" data-phones="+998930427583 +998930425083" data-rop="Charos" data-summa="1 600 000">
 
