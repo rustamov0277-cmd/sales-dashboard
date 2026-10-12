@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Барча буюртмалар</h1>
-<div class="sub">Янгиланди: 12.10.2026 17:50 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 12.10.2026 18:00 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">6159</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">31</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">5128</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">22</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">907</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">71</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">6159</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">31</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">5129</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">18</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">910</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">71</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,7 +124,21 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirmed" data-date="2026-10-12" data-phones="+998918300691 +998910825073" data-rop="Saidaziz" data-summa="1 800 000">
+<tr data-status="rejected" data-date="2026-10-12" data-phones="+998505710633" data-rop="Sadriddin" data-summa="1 600 000">
+<td data-l="РОП" class="nowrap"><b>Sadriddin</b></td>
+<td data-l="№" class="nowrap">042</td>
+<td data-l="Сана" class="nowrap">2026-10-12<div class="muted">17:52</div></td>
+<td data-l="Id сделки" class="nowrap">1110056</td>
+<td data-l="Мижоз">karimova Barnoxon</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998505710633"><span class="pm">+99850***0633</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">МАРЖОНА ХАЙРУЛЛАЙЕВНА 216 216</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
+<td data-l="Сумма" class="nowrap">1 600 000</td>
+<td data-l="Регион">Фарғона</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="quva tumani sentrga">quva tumani sentrga</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-10-12" data-phones="+998918300691 +998910825073" data-rop="Saidaziz" data-summa="1 800 000">
 <td data-l="РОП" class="nowrap"><b>Saidaziz</b></td>
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-10-12<div class="muted">17:42</div></td>
@@ -1230,20 +1244,6 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="quqon shaxar UZbekiston tumani">quqon shaxar UZbekiston tumani</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-10-12" data-phones="+998505710633" data-rop="Sadriddin" data-summa="1 600 000">
-<td data-l="РОП" class="nowrap"><b>Sadriddin</b></td>
-<td data-l="№" class="nowrap">014</td>
-<td data-l="Сана" class="nowrap">2026-10-12<div class="muted">10:34</div></td>
-<td data-l="Id сделки" class="nowrap">1110056</td>
-<td data-l="Мижоз">karimova Barnoxon</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998505710633"><span class="pm">+99850***0633</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
-<td data-l="Оператор">МАРЖОНА ХАЙРУЛЛАЙЕВНА 216 216</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
-<td data-l="Сумма" class="nowrap">1 600 000</td>
-<td data-l="Регион">Фарғона</td>
-<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="quva tumani sentrga">quva tumani sentrga</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
-<td data-l="Источник">Ген лид</td>
 </tr><tr data-status="rejected" data-date="2026-10-12" data-phones="+998995187166 +998905477163" data-rop="Azizbek" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Azizbek</b></td>
 <td data-l="№" class="nowrap">003</td>
@@ -1356,7 +1356,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="SHaxrisabz tumani Shiromon  qishlog&#x27;i   82 uy   +998883010984">SHaxrisabz tumani Shiromon  qishlog&#x27;i   82 uy   +998883010984</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
-</tr><tr data-status="no_answer" data-date="2026-10-12" data-phones="+998920430177" data-rop="Asliddin" data-summa="3 200 000">
+</tr><tr data-status="rejected" data-date="2026-10-12" data-phones="+998920430177" data-rop="Asliddin" data-summa="3 200 000">
 <td data-l="РОП" class="nowrap"><b>Asliddin</b></td>
 <td data-l="№" class="nowrap">012</td>
 <td data-l="Сана" class="nowrap">2026-10-12<div class="muted">10:18</div></td>
@@ -1368,7 +1368,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qoqon shaxar yaypan karim devona qishlog&#x27;i namuna ko&#x27;chasi 33-uy">Qoqon shaxar yaypan karim devona qishlog&#x27;i namuna ko&#x27;chasi 33-uy</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-10-12" data-phones="+998935451289 +998977379983" data-rop="Kompaniya" data-summa="850 000">
 <td data-l="РОП" class="nowrap"><b>Kompaniya</b></td>
@@ -1566,19 +1566,19 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="zomin tumani sobir raximov kochasi 1 uy srochna c13.10.2026 ga soat kechki 5 gacha bersin">zomin tumani sobir raximov kochasi 1 uy srochna c13.10.2026 ga soat kechki 5 gacha bersin</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Исход</td>
-</tr><tr data-status="no_answer" data-date="2026-10-12" data-phones="+998993367171" data-rop="Baza" data-summa="1 600 000">
+</tr><tr data-status="confirmed" data-date="2026-10-12" data-phones="+998993367171 +998943527172" data-rop="Baza" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Baza</b></td>
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-10-12<div class="muted">09:24</div></td>
 <td data-l="Id сделки" class="nowrap">1109496</td>
 <td data-l="Мижоз">Yulduz</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993367171"><span class="pm">+99899***7171</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998993367171"><span class="pm">+99899***7171</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998943527172"><span class="pm">+99894***7172</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Quvondiqova Gulmira 219 219</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 2 ta</span></td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="shahar kapitalbank yoniga">shahar kapitalbank yoniga</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
 </tr><tr data-status="confirmed" data-date="2026-10-12" data-phones="+998901156456 +998990609760" data-rop="Charos" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Charos</b></td>
@@ -1622,7 +1622,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="buloqboshi tumani boy mahalla mfy oltin meros kucha 34 uy">buloqboshi tumani boy mahalla mfy oltin meros kucha 34 uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-10-12" data-phones="+998916652657" data-rop="Sadriddin" data-summa="1 600 000">
+</tr><tr data-status="rejected" data-date="2026-10-12" data-phones="+998916652657" data-rop="Sadriddin" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Sadriddin</b></td>
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-10-12<div class="muted">09:18</div></td>
@@ -1630,11 +1630,11 @@ font-variant-numeric:tabular-nums}
 <td data-l="Мижоз">Abdullo</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998916652657"><span class="pm">+99891***2657</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Butayev Ali 211 211</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 2 ta</span></td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
-<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="margulon shaxri eangi yul  maxalasi 256 uy">margulon shaxri eangi yul  maxalasi 256 uy</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="marg&#x27;ulon shaxri yangi yul  maxallasi 256 uy">marg&#x27;ulon shaxri yangi yul  maxallasi 256 uy</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="rejected" data-date="2026-10-12" data-phones="+998979761011 +998503003350" data-rop="Azizbek" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Azizbek</b></td>
