@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Gulzora — буюртмалар</h1>
-<div class="sub">Янгиланди: 03.11.2026 19:20 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 03.11.2026 19:30 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">882</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">2</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">671</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">4</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">201</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">4</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">882</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">1</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">671</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">2</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">204</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">4</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,7 +124,7 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-11-03" data-phones="+998950739712" data-rop="Gulzora" data-summa="1 600 000">
+<tr data-status="rejected" data-date="2026-11-03" data-phones="+998950739712" data-rop="Gulzora" data-summa="1 600 000">
 
 <td data-l="№" class="nowrap">027</td>
 <td data-l="Сана" class="nowrap">2026-11-03<div class="muted">18:47</div></td>
@@ -136,7 +136,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Фарғона</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Oltiariq tumani chordara mfy">Oltiariq tumani chordara mfy</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-11-03" data-phones="+998916121815" data-rop="Gulzora" data-summa="1 200 000">
 
@@ -152,7 +152,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="shaxrixon tumani toshkent kocha siga">shaxrixon tumani toshkent kocha siga</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Входящий</td>
-</tr><tr data-status="no_answer" data-date="2026-11-03" data-phones="+998500101795" data-rop="Gulzora" data-summa="1 200 000">
+</tr><tr data-status="rejected" data-date="2026-11-03" data-phones="+998500101795" data-rop="Gulzora" data-summa="1 200 000">
 
 <td data-l="№" class="nowrap">025</td>
 <td data-l="Сана" class="nowrap">2026-11-03<div class="muted">17:20</div></td>
@@ -164,7 +164,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 200 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Andijon shahar Bobur arena stadioni klinika bor yonida">Andijon shahar Bobur arena stadioni klinika bor yonida</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-11-03" data-phones="+998887871488" data-rop="Gulzora" data-summa="500 000">
 
@@ -488,7 +488,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qushtepa tumani Istiqbol MFY Zakovat ko&#x27;chasi Achitqi zavodi oldiga">Qushtepa tumani Istiqbol MFY Zakovat ko&#x27;chasi Achitqi zavodi oldiga</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-11-03" data-phones="+998955330697" data-rop="Gulzora" data-summa="3 200 000">
+</tr><tr data-status="rejected" data-date="2026-11-03" data-phones="+998955330697" data-rop="Gulzora" data-summa="3 200 000">
 
 <td data-l="№" class="nowrap">001</td>
 <td data-l="Сана" class="nowrap">2026-11-03<div class="muted">09:26</div></td>
@@ -500,7 +500,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">3 200 000</td>
 <td data-l="Регион">Андижон</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qorgontepa tumani Ibn sino gozal 18">Qorgontepa tumani Ibn sino gozal 18</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="rejected" data-date="2026-11-02" data-phones="+998947361188" data-rop="Gulzora" data-summa="1 000 000">
 
