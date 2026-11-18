@@ -105,13 +105,13 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Барча буюртмалар</h1>
-<div class="sub">Янгиланди: 18.11.2026 11:40 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 18.11.2026 11:50 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">9803</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">46</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">8219</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">9</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">1439</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">90</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">9804</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">45</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">8220</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">10</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">1439</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">90</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
-<select id="rop"><option value="">Барча РОП</option><option value="Afruzaxon">Afruzaxon (95)</option><option value="Asliddin">Asliddin (552)</option><option value="Azizbek">Azizbek (1206)</option><option value="Baza">Baza (1009)</option><option value="Charos">Charos (297)</option><option value="Gulzora">Gulzora (1103)</option><option value="Hayot">Hayot (8)</option><option value="Kompaniya">Kompaniya (70)</option><option value="Lola">Lola (1235)</option><option value="Maftuna">Maftuna (435)</option><option value="Malika">Malika (187)</option><option value="Marjona">Marjona (296)</option><option value="Marjona2">Marjona2 (7)</option><option value="Mubina">Mubina (2)</option><option value="Muxriddin">Muxriddin (21)</option><option value="NEW">NEW (3)</option><option value="Sadriddin">Sadriddin (768)</option><option value="Saida">Saida (1)</option><option value="Saidaziz">Saidaziz (655)</option><option value="Sevinch">Sevinch (1511)</option><option value="Sevinchxon">Sevinchxon (148)</option><option value="Shohjaxon">Shohjaxon (148)</option><option value="ZextraBaza">ZextraBaza (28)</option><option value="Номаълум">Номаълум (18)</option></select>
+<select id="rop"><option value="">Барча РОП</option><option value="Afruzaxon">Afruzaxon (95)</option><option value="Asliddin">Asliddin (552)</option><option value="Azizbek">Azizbek (1206)</option><option value="Baza">Baza (1009)</option><option value="Charos">Charos (297)</option><option value="Gulzora">Gulzora (1103)</option><option value="Hayot">Hayot (8)</option><option value="Kompaniya">Kompaniya (70)</option><option value="Lola">Lola (1235)</option><option value="Maftuna">Maftuna (435)</option><option value="Malika">Malika (187)</option><option value="Marjona">Marjona (296)</option><option value="Marjona2">Marjona2 (7)</option><option value="Mubina">Mubina (2)</option><option value="Muxriddin">Muxriddin (21)</option><option value="NEW">NEW (3)</option><option value="Sadriddin">Sadriddin (768)</option><option value="Saida">Saida (1)</option><option value="Saidaziz">Saidaziz (655)</option><option value="Sevinch">Sevinch (1512)</option><option value="Sevinchxon">Sevinchxon (148)</option><option value="Shohjaxon">Shohjaxon (148)</option><option value="ZextraBaza">ZextraBaza (28)</option><option value="Номаълум">Номаълум (18)</option></select>
 <select id="st"><option value="">Барча статус</option><option value="confirm_new">🕔 Тасдиқлаш</option><option value="confirmed">✅ Тасдиқланди</option><option value="no_answer">🟡 Кутармади (нд)</option><option value="rejected">❌ Тасдиқланмади</option><option value="unconfirmed_shipped">🟣 Тасдиқланмай чиқди</option></select>
 <input type="date" id="d1" title="Дан">
 <input type="date" id="d2" title="Гача">
@@ -124,19 +124,33 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-11-18" data-phones="+998953358530" data-rop="Gulzora" data-summa="1 700 000">
+<tr data-status="no_answer" data-date="2026-11-18" data-phones="+998919643835 +998959246200" data-rop="Sevinch" data-summa="1 800 000">
+<td data-l="РОП" class="nowrap"><b>Sevinch</b></td>
+<td data-l="№" class="nowrap">010</td>
+<td data-l="Сана" class="nowrap">2026-11-18<div class="muted">11:39</div></td>
+<td data-l="Id сделки" class="nowrap">1319964</td>
+<td data-l="Мижоз">Дилдора</td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998919643835"><span class="pm">+99891***3835</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998959246200"><span class="pm">+99895***6200</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Оператор">Farida Saparboyeva 110 110</td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Kist al hindi Sinolife - 1 ta</span></td>
+<td data-l="Сумма" class="nowrap">1 800 000</td>
+<td data-l="Регион">Қашқадарё</td>
+<td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Qashqa daryo  shaxri Kesh MFY 33-uy">Qashqa daryo  shaxri Kesh MFY 33-uy</span></td>
+<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Источник">Ген лид</td>
+</tr><tr data-status="confirmed" data-date="2026-11-18" data-phones="+998918347443" data-rop="Gulzora" data-summa="1 700 000">
 <td data-l="РОП" class="nowrap"><b>Gulzora</b></td>
 <td data-l="№" class="nowrap">008</td>
 <td data-l="Сана" class="nowrap">2026-11-18<div class="muted">11:36</div></td>
 <td data-l="Id сделки" class="nowrap">1320008</td>
 <td data-l="Мижоз">iroda</td>
-<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998953358530"><span class="pm">+99895***8530</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
+<td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998918347443"><span class="pm">+99891***7443</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Dilshoda Quldosheva 122 122</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 2 ta</span><span class="pl">Sedana Sinolife - 1 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">1 700 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="qarshi shahar paxtazor mahallasi tumaris domi">qarshi shahar paxtazor mahallasi tumaris domi</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-11-18" data-phones="+998883157888 +998883101705" data-rop="Baza" data-summa="1 500 000">
 <td data-l="РОП" class="nowrap"><b>Baza</b></td>
@@ -516,7 +530,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Kattaqo`rg`on shahar , bayroqni oldi">Kattaqo`rg`on shahar , bayroqni oldi</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
-</tr><tr data-status="no_answer" data-date="2026-11-18" data-phones="+998990425615" data-rop="Sadriddin" data-summa="3 200 000">
+</tr><tr data-status="no_answer" data-date="2026-11-18" data-phones="+998990425615" data-rop="Sadriddin" data-summa="1 600 000">
 <td data-l="РОП" class="nowrap"><b>Sadriddin</b></td>
 <td data-l="№" class="nowrap">004</td>
 <td data-l="Сана" class="nowrap">2026-11-18<div class="muted">10:03</div></td>
@@ -524,8 +538,8 @@ font-variant-numeric:tabular-nums}
 <td data-l="Мижоз">Feruza</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998990425615"><span class="pm">+99899***5615</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Butayev Ali 211 211</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Zextra sure - 4 ta</span></td>
-<td data-l="Сумма" class="nowrap">3 200 000</td>
+<td data-l="Продукт" class="prod"><span class="pl">Zextra sure - 2 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
+<td data-l="Сумма" class="nowrap">1 600 000</td>
 <td data-l="Регион">Навоий</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="navbaxor  tumani uch tut maxalasi xon taxt kochasi  20 uy">navbaxor  tumani uch tut maxalasi xon taxt kochasi  20 uy</span></td>
 <td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
