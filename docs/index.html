@@ -105,9 +105,9 @@ font-variant-numeric:tabular-nums}
 </style>
 </head><body>
 <h1>Барча буюртмалар</h1>
-<div class="sub">Янгиланди: 24.11.2026 17:10 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
+<div class="sub">Янгиланди: 24.11.2026 17:20 (ҳар 2 дақиқада — филтрларингиз сақланади) ·
 Кўрсатилмоқда: <b id="shown">0</b> та</div>
-<div class="stats"><div class="stat"><div class="n" id="c-total">10516</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">47</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">8849</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">6</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">1521</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">93</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
+<div class="stats"><div class="stat"><div class="n" id="c-total">10516</div><div class="l">Жами</div></div><div class="stat"><div class="n" id="c-confirm_new">45</div><div class="l">🕔 Тасдиқлаш</div></div><div class="stat"><div class="n" id="c-confirmed">8850</div><div class="l">✅ Тасдиқланди</div></div><div class="stat"><div class="n" id="c-no_answer">5</div><div class="l">🟡 Кутармади (нд)</div></div><div class="stat"><div class="n" id="c-rejected">1523</div><div class="l">❌ Тасдиқланмади</div></div><div class="stat"><div class="n" id="c-unconfirmed_shipped">93</div><div class="l">🟣 Тасдиқланмай чиқди</div></div></div>
 <div class="controls">
 <input type="text" id="q" placeholder="Қидирув (исм, телефон, маҳсулот, ID...)">
 <button class="btn btn-primary" onclick="filterToday()">📅 Бугун</button>
@@ -124,7 +124,7 @@ font-variant-numeric:tabular-nums}
 <th>Оператор</th><th>Продукт</th><th>Сумма</th><th>Регион</th><th>Адрес</th>
 <th>Статус</th><th>Источник</th>
 </tr></thead><tbody>
-<tr data-status="confirm_new" data-date="2026-11-24" data-phones="+998946309219" data-rop="Baza" data-summa="1 000 000">
+<tr data-status="confirmed" data-date="2026-11-24" data-phones="+998946309219" data-rop="Baza" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Baza</b></td>
 <td data-l="№" class="nowrap">015</td>
 <td data-l="Сана" class="nowrap">2026-11-24<div class="muted">17:07</div></td>
@@ -136,7 +136,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 000 000</td>
 <td data-l="Регион">Тошкент ш.</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="Yashnobod tumani Tuzel 2 12-A dom">Yashnobod tumani Tuzel 2 12-A dom</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">База клиент</td>
 </tr><tr data-status="confirmed" data-date="2026-11-24" data-phones="+998906548446 +998880118446" data-rop="Lola" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Lola</b></td>
@@ -838,7 +838,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="fargona qoshtepa tumani shahartepa mahallasi mustaqillik kochasi 23 uy">fargona qoshtepa tumani shahartepa mahallasi mustaqillik kochasi 23 uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="no_answer" data-date="2026-11-24" data-phones="+998937164060 +998930504260" data-rop="Malika" data-summa="2 400 000">
+</tr><tr data-status="rejected" data-date="2026-11-24" data-phones="+998937164060 +998930504260" data-rop="Malika" data-summa="2 400 000">
 <td data-l="РОП" class="nowrap"><b>Malika</b></td>
 <td data-l="№" class="nowrap">007</td>
 <td data-l="Сана" class="nowrap">2026-11-24<div class="muted">11:58</div></td>
@@ -846,11 +846,11 @@ font-variant-numeric:tabular-nums}
 <td data-l="Мижоз">Maysara</td>
 <td data-l="Телефон" class="nowrap"><span class="ph" data-full="+998937164060"><span class="pm">+99893***4060</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span><br><span class="ph" data-full="+998930504260"><span class="pm">+99893***4260</span><button class="eye" onclick="togglePhone(this)" title="Кўрсатиш">👁</button></span></td>
 <td data-l="Оператор">Yarashova Charos 280 280</td>
-<td data-l="Продукт" class="prod"><span class="pl">Sinolife omega kapsula 60 - 1 ta</span><span class="pl">Sinolife collagen marine kakao - 3 ta</span></td>
+<td data-l="Продукт" class="prod"><span class="pl">Sinolife collagen marine kakao - 3 ta</span><span class="pl">Sinolife omega kapsula 60 - 1 ta</span></td>
 <td data-l="Сумма" class="nowrap">2 400 000</td>
 <td data-l="Регион">Қашқадарё</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="koson tumani // do`stlik mfy // 29 dom 23 xonadon // 100 maktab">koson tumani // do`stlik mfy // 29 dom 23 xonadon // 100 maktab</span></td>
-<td data-l="Статус"><span class="badge s-no_answer">🟡 Кутармади (нд)</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-11-24" data-phones="+998993935148 +998993149992" data-rop="Malika" data-summa="1 000 000">
 <td data-l="РОП" class="nowrap"><b>Malika</b></td>
@@ -908,7 +908,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="jarqorgon tumani Qorabura  MFY.POrloq 147 uy">jarqorgon tumani Qorabura  MFY.POrloq 147 uy</span></td>
 <td data-l="Статус"><span class="badge s-confirmed">✅ Тасдиқланди</span></td>
 <td data-l="Источник">Ген лид</td>
-</tr><tr data-status="confirm_new" data-date="2026-11-24" data-phones="+998941943121" data-rop="Marjona" data-summa="1 200 000">
+</tr><tr data-status="rejected" data-date="2026-11-24" data-phones="+998941943121" data-rop="Marjona" data-summa="1 200 000">
 <td data-l="РОП" class="nowrap"><b>Marjona</b></td>
 <td data-l="№" class="nowrap">003</td>
 <td data-l="Сана" class="nowrap">2026-11-24<div class="muted">11:25</div></td>
@@ -920,7 +920,7 @@ font-variant-numeric:tabular-nums}
 <td data-l="Сумма" class="nowrap">1 200 000</td>
 <td data-l="Регион">Бухоро</td>
 <td data-l="Адрес"><span class="addr" onclick="toggleAddr(this)" title="olot tumani eski olot mahallasi ipak yuli">olot tumani eski olot mahallasi ipak yuli</span></td>
-<td data-l="Статус"><span class="badge s-confirm_new">🕔 Тасдиқлаш</span></td>
+<td data-l="Статус"><span class="badge s-rejected">❌ Тасдиқланмади</span></td>
 <td data-l="Источник">Ген лид</td>
 </tr><tr data-status="confirmed" data-date="2026-11-24" data-phones="+998951881558" data-rop="Gulzora" data-summa="1 800 000">
 <td data-l="РОП" class="nowrap"><b>Gulzora</b></td>
